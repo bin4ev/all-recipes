@@ -1,37 +1,17 @@
 <div class="container">
     <h1 class="title">Summer Favorites</h1>
 
-    <section class="post">
+    <section class="post" *ngFor=' let post of posts'>
         <article class="img-wrapper">
-            <img src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F43%2F2020%2F02%2F2276935.jpg&w=426&h=285&c=sc&poi=face&q=85" alt="">
+            <img src={{post.imgUrl}}>
         </article>
         <article class="post-content">
-            <h3 class="post-content-title" >15 Side Dishes for Summer Picnic</h3>
-            <p class="post-content-text">Round out your next picnic with our favorite Southern side dishes, from creamy slaw to crunchy cucumber salad.</p>
-            <a href="#">Read more</a>
+            <h3 class="post-content-title" >{{post.title}}</h3>
+            <p class="post-content-text">{{post.text}}</p>
+          
         </article>
     </section>
 
-    <section class="post">
-        <article class="img-wrapper">
-            <img src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F43%2F2020%2F02%2F2276935.jpg&w=426&h=285&c=sc&poi=face&q=85" alt="">
-        </article>
-        <article class="post-content">
-            <h3 class="post-content-title" >15 Side Dishes for Summer Picnic</h3>
-            <p class="post-content-text">Round out your next picnic with our favorite Southern side dishes, from creamy slaw to crunchy cucumber salad.</p>
-            <a href="#">Read more</a>
-        </article>
-    </section>
-
-    <section class="post">
-        <article class="img-wrapper">
-            <img src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F43%2F2020%2F02%2F2276935.jpg&w=426&h=285&c=sc&poi=face&q=85" alt="">
-        </article>
-        <article class="post-content">
-            <h3 class="post-content-title" >15 Side Dishes for Summer Picnic</h3>
-            <p class="post-content-text">Round out your next picnic with our favorite Southern side dishes, from creamy slaw to crunchy cucumber salad.</p>
-            <a href="#">Read more</a>
-        </article>
-    </section>
+  
 
 </div>
