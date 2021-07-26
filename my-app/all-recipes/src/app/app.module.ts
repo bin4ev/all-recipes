@@ -10,6 +10,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { UserModule } from './user/user.module';
 import { ContentService } from './content.service';
+import { RecipesModule } from './recipes/recipes.module';
 
 var firebaseConfig = {
   apiKey: "AIzaSyAO2hwQ2wiG8qz-mcXQxnHj-mfghOJBjK8",
@@ -31,6 +32,7 @@ var firebaseConfig = {
     AppRoutingModule,
     CoreModule,
     UserModule,
+    RecipesModule,
 
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule, // firestore
