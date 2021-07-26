@@ -1,5 +1,11 @@
 export interface iPosts{
     imgUrl:string;
     title:string;
-    text:string
+    duration: number;
+    ingrediants:string;
+    level: string;
+    portions: number;
+    preparation: string;
+category:string;
+    
 }

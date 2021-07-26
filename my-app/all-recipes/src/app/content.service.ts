@@ -10,6 +10,6 @@ export class ContentService {
   constructor(private db: AngularFirestore) {}
   
   loadPosts(){
-   return  this.db.collection<iPosts>('posts')
+   return  this.db.collection<iPosts>('recipes')
   }
 }

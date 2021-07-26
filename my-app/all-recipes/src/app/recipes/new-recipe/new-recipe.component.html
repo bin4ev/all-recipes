@@ -1,1 +1,61 @@
-<p>new-recipe works!</p>
+	
+
+<form action="#" method="post">
+    <h2>Share Your New Recipe</h2>
+
+    <article>
+        <label for="image" class="floatLabel">Image-url</label>
+        <input  name="image" type="text">
+    </article>
+          <article>
+              <label for="title" class="floatLabel">Title</label>
+              <input id="title" name="title" type="text">
+          </article>
+          <article>
+            <label for="category" class="floatLabel">Category</label>
+            <select name="category">
+              <option disabled selected value></option>
+              <option value="Starters">Starters</option>
+              <option value="Main courses">Main courses</option>
+              <option value="Desserts">Desserts</option>
+              <option value="others">others</option>
+          </select>
+          </article>
+        
+<article>
+    <label for="ingrediants" class="floatLabel">Ingrediants</label>
+
+    <textarea id="" name="ingrediants" rows="5" cols="35.5">
+  
+    </textarea>
+</article>
+
+<article>
+    <label for="preparation" class="floatLabel">Preparation</label>
+
+        <textarea  name="preparation" rows="5" cols="35.5">
+      
+        </textarea>
+</article>
+    
+        <article>
+            <label for="portions" class="floatLabel">Portions</label>
+            <input id="" name="portions" type="number">
+        </article>
+        <article>
+            <label for="duration" class="floatLabel">Duration</label>
+            <input id="" name="duration" type="number">
+        </article>
+        <article>
+            <label for="level" class="floatLabel">Level</label>
+            <select name="level" id="">
+                <option  disabled selected value></option>
+                <option value="beginners">Beginners</option>
+                <option value="advanced">Advanced</option>
+                <option value="expert">Experts</option>
+            </select>
+        </article>
+          <article>
+              <input type="submit" value="Submit" id="submit">
+          </article>
+      </form>
