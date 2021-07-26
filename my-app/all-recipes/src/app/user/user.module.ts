@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { UserRoutingModule } from './user-routing.modul';
+import { UserServiseService } from './user-servise.service';
 
 
 
@@ -18,6 +19,9 @@ import { UserRoutingModule } from './user-routing.modul';
     RegisterComponent,
     LoginComponent,
     UserRoutingModule,
+  ],
+  providers:[
+    UserServiseService
   ]
 })
 export class UserModule { }
