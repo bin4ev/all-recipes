@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,  } from '@angular/core';
 import { ContentService } from 'src/app/content.service';
 import { iPosts } from 'src/app/share/interface/posts';
 @Component({
@@ -6,20 +6,18 @@ import { iPosts } from 'src/app/share/interface/posts';
   templateUrl: './posts.component.html',
   styleUrls: ['./posts.component.css']
 })
-export class PostsComponent implements OnInit {
-
-posts: iPosts[] | undefined;
+export class PostsComponent {
+posts: iPosts[]| undefined;
 
   constructor(private contentService:ContentService) {
 this.fetchPosts();
    }
 
    fetchPosts():void{
-    const allPost= this.contentService.loadPosts().valueChanges();
+    const allPost= this.contentService.loadPosts().valueChanges({idField:'id'});
+    
     allPost.subscribe(post=>this.posts=post)
    }
 
-  ngOnInit(): void {
-  }
 
 }

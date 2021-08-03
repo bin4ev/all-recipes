@@ -1,0 +1,32 @@
+.content {
+    max-width:200px;
+    position: relative;
+    left: 1057px;
+    bottom: 759px;
+    font-size: xx-large;
+    font-family:cursive;
+    color: #792904;
+}
+.img-wrapper{
+    max-width: fit-content;
+}
+.img-wrapper img{
+    width: 100%;
+    object-fit:contain;
+}
+.content h1{
+    margin-bottom: 5px;
+}
+.content p{
+    margin-top: 10px;
+}
+
+.content button{
+position: relative;
+left:26px;
+padding:5px 10px;
+border-radius: 15px;
+border:solid 1px #792904;
+font-weight: bold;
+
+}

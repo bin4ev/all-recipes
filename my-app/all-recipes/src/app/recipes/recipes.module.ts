@@ -4,6 +4,7 @@ import { PostsComponent } from './recipes/posts.component';
 import { NewRecipeComponent } from './new-recipe/new-recipe.component';
 import { MyRecipesComponent } from './my-recipes/my-recipes.component';
 import { RecipesRoutingModule } from './recipes-routing.modul';
+import { RecipeComponent } from './recipe/recipe.component';
 
 
 
@@ -11,7 +12,8 @@ import { RecipesRoutingModule } from './recipes-routing.modul';
   declarations: [
     PostsComponent,
     NewRecipeComponent,
-    MyRecipesComponent
+    MyRecipesComponent,
+    RecipeComponent
   ],
   imports: [
     RecipesRoutingModule,

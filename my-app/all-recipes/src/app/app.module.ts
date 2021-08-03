@@ -7,10 +7,11 @@ import { CoreModule } from './core/core.module';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireAuthModule,} from '@angular/fire/auth';
 import { UserModule } from './user/user.module';
 import { ContentService } from './content.service';
 import { RecipesModule } from './recipes/recipes.module';
+
 
 var firebaseConfig = {
   apiKey: "AIzaSyAO2hwQ2wiG8qz-mcXQxnHj-mfghOJBjK8",
@@ -38,7 +39,11 @@ var firebaseConfig = {
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth
   ],
-  providers: [ContentService],
+  providers: [ContentService,
+        
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+ }

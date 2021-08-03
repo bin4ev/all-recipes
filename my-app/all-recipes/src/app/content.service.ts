@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+
 import { iPosts } from './share/interface/posts';
 
 @Injectable({
@@ -7,9 +8,15 @@ import { iPosts } from './share/interface/posts';
 })
 export class ContentService {
 
-  constructor(private db: AngularFirestore) {}
+  constructor(private db: AngularFirestore,
+  ) {}
   
   loadPosts(){
    return  this.db.collection<iPosts>('recipes')
+  }
+
+  loadPost(idField:string){
+    
+    return this.db.collection<iPosts>('recipes').get()
   }
 }

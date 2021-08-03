@@ -7,5 +7,6 @@ export interface iPosts{
     portions: number;
     preparation: string;
 category:string;
+idField: string
     
 }
