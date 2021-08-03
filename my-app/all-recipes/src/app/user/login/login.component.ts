@@ -15,7 +15,9 @@ export class LoginComponent implements OnInit {
 
     doLogin(email:string, password:string){
       this.auth.login(email,password)
-        this.router.navigate([''])
+
+      this.router.navigate([''])
+       
     }
 
   ngOnInit(): void {

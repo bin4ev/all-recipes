@@ -6,6 +6,10 @@ import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { UserServiseService } from '../user/user-servise.service';
+import { AuthActivate } from './guards/auth-activate';
+
+
 
 
 
@@ -19,7 +23,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    
   ],
   exports: [
     HeaderComponent,
@@ -27,6 +32,10 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     HomeComponent,
   
 
+  ],
+  providers:[
+    UserServiseService,AuthActivate
   ]
+
 })
 export class CoreModule { }
