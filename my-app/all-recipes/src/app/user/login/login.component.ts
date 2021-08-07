@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm, NgModelGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { fromEvent } from 'rxjs';
 import { UserServiseService } from '../user-servise.service';
 
 @Component({
@@ -7,20 +9,24 @@ import { UserServiseService } from '../user-servise.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent  {
 
+errorMessage:string | undefined;
 
   constructor(private auth:UserServiseService,
     private router:Router) { }
 
-    doLogin(email:string, password:string){
-      this.auth.login(email,password)
+    doLogin(form: NgForm) {
+      if(form.invalid){ return };
+      const {email, password}= form.value;
+        this.auth.login(email, password);
+        this.router.navigate(['/home']);
+      form.reset('');
 
-      this.router.navigate([''])
+
        
     }
 
-  ngOnInit(): void {
-  }
+
 
 }

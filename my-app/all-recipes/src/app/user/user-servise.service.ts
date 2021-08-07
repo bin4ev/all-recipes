@@ -18,7 +18,7 @@ export class UserServiseService {
   }
 
 
-  constructor(private authentication: AngularFireAuth, private route: Router,
+  constructor(private authentication: AngularFireAuth, private router: Router,
   ) {
     /* this.authentication.onAuthStateChanged
       (user => {
@@ -37,12 +37,11 @@ export class UserServiseService {
   }
 
 
-  register(email: string, password: string) {
+  register(data:{email: string, password: string}) {
 
-    this.authentication.createUserWithEmailAndPassword(email, password)
+    this.authentication.createUserWithEmailAndPassword(data.email, data.password)
       .then(value => {
         console.log('SUCCSEED!');
-
 
       })
       .catch(error => {
@@ -53,10 +52,10 @@ export class UserServiseService {
   }
   login(email: string, password: string) {
 
-        this.authentication.signInWithEmailAndPassword(email, password)
+      this.authentication.signInWithEmailAndPassword(email, password)
           .then(data => {
             console.log('user is succseedfull logged');
-
+        
             let { email, uid } = data.user!
                 this.user = {
                   uid: uid!,
@@ -64,7 +63,9 @@ export class UserServiseService {
                 } 
 
           }).catch(error => {
-            console.log(error)
+            const errorMesage=error.message
+            console.log(error.message)
+            return errorMesage
           })
       
       

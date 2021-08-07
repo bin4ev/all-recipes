@@ -15,15 +15,14 @@ path:'home',
   component: HomeComponent
 },
 
-
-/* {
+ {
   path:'**',
   component: PageNotFoundComponent
-} */
+}  
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

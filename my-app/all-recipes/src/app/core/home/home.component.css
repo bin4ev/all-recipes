@@ -1,14 +1,22 @@
-.content {
-    max-width:200px;
+
+.container{
     position: relative;
+}
+.content {
+    display: flex;
+    flex-direction: column;
+    
+    max-width:200px;
+    position: absolute;
     left: 1057px;
-    bottom: 759px;
+    bottom: 441px;
     font-size: xx-large;
     font-family:cursive;
     color: #792904;
 }
 .img-wrapper{
-    max-width: fit-content;
+    width: 100%;
+
 }
 .img-wrapper img{
     width: 100%;
@@ -22,11 +30,20 @@
 }
 
 .content button{
-position: relative;
-left:26px;
-padding:5px 10px;
+
+padding:10px 30px;
 border-radius: 15px;
-border:solid 1px #792904;
+border:solid 1px#792904;
 font-weight: bold;
+opacity: 0.6;
+
+}
+.content button p{
+    margin: 0;
+    color: #792904;
+    
+}
+.content button:hover{
+    opacity: 1;
 
 }

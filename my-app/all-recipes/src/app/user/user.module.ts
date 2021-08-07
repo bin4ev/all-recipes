@@ -4,6 +4,8 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { UserRoutingModule } from './user-routing.modul';
 import { UserServiseService } from './user-servise.service';
+import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
+import { ShareModule } from '../share/share.module';
 
 
 
@@ -13,7 +15,10 @@ import { UserServiseService } from './user-servise.service';
     LoginComponent
   ],
   imports: [
-    CommonModule
+    ReactiveFormsModule ,
+    CommonModule,
+    FormsModule,
+    ShareModule,
   ],
   exports: [
     RegisterComponent,

@@ -44,9 +44,9 @@ form {
   }
   span {
     display:block;
-    background: #F9A5A5;
+  
     padding: 2px 5px;
-    color: #666;
+    color:red;
   }
   input[type="submit"] {
 
