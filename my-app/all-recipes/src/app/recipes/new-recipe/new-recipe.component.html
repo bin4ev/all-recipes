@@ -1,61 +1,90 @@
-	
-
-<form action="#" method="post">
+<form #form='ngForm' action="" method="post" (ngSubmit)="createRecipe(form)">
     <h2>Share Your New Recipe</h2>
 
     <article>
         <label for="image" class="floatLabel">Image-url</label>
-        <input  name="image" type="text">
+        <input name="image" type="text" #imgUrl="ngModel" ngModel required>
+        <ng-container *ngIf="imgUrl.touched">
+            <span *ngIf="imgUrl.errors?.required">Image-url is required !</span>
+        </ng-container>
     </article>
-          <article>
-              <label for="title" class="floatLabel">Title</label>
-              <input id="title" name="title" type="text">
-          </article>
-          <article>
-            <label for="category" class="floatLabel">Category</label>
-            <select name="category">
-              <option disabled selected value></option>
-              <option value="Starters">Starters</option>
-              <option value="Main courses">Main courses</option>
-              <option value="Desserts">Desserts</option>
-              <option value="others">others</option>
-          </select>
-          </article>
-        
-<article>
-    <label for="ingrediants" class="floatLabel">Ingrediants</label>
+    <article>
+        <label for="title" class="floatLabel">Title</label>
+        <input id="title" name="title" type="text" #titleInput="ngModel" ngModel required>
+        <ng-container *ngIf="titleInput.touched">
+            <span *ngIf="titleInput.errors?.required">Title is required !</span>
+            
+        </ng-container>
+    </article>
+    <article>
+        <label for="category" class="floatLabel">Category</label>
+        <select name="category" #category='ngModel' ngModel required >
+         <!--    <option [ngValue]=null>--Select--</option> -->
+            <option *ngFor='let category of categories'>
+                {{category}}
+            </option>
+        </select>
+        <ng-container *ngIf="category.touched">
+            <span *ngIf="category.errors?.required">Category is required !</span>
 
-    <textarea id="" name="ingrediants" rows="5" cols="35.5">
-  
+        </ng-container>
+    </article>
+
+    <article>
+        <label for="ingrediants" class="floatLabel">Ingrediants</label>
+
+        <textarea id="" name="ingrediants" rows="5" cols="35.5" #ingrediants="ngModel" ngModel required>
+         
     </textarea>
-</article>
+    <ng-container *ngIf="ingrediants.touched">
+        <span *ngIf="ingrediants.errors?.required">Ingrediants are required !</span>
 
-<article>
-    <label for="preparation" class="floatLabel">Preparation</label>
+    </ng-container>
+    </article>
 
-        <textarea  name="preparation" rows="5" cols="35.5">
-      
+    <article>
+        <label for="preparation" class="floatLabel">Preparation</label>
+
+        <textarea name="preparation" rows="5" cols="35.5" #preparations='ngModel' ngModel required>
+
         </textarea>
-</article>
+        <ng-container *ngIf="preparations.touched">
+            <span *ngIf="preparations.errors?.required">Descriptions is required !</span>
+
+        </ng-container>
+    </article>
+
+    <article>
+        <label for="portions" class="floatLabel">Portions</label>
+        <input id="" name="portions" type="number" #portions ="ngModel" ngModel required>
+        <ng-container *ngIf="portions.touched">
+            <span *ngIf="portions.errors?.required">Portions are required !</span>
+
+        </ng-container>
+    </article>
+    <article>
+        <label for="duration" class="floatLabel">Duration</label>
+        <input id="" name="duration" type="number" #durations='ngModel' ngModel required>
+        <ng-container *ngIf="durations.touched">
+            <span *ngIf="durations.errors?.required">Durations is required !</span>
     
-        <article>
-            <label for="portions" class="floatLabel">Portions</label>
-            <input id="" name="portions" type="number">
-        </article>
-        <article>
-            <label for="duration" class="floatLabel">Duration</label>
-            <input id="" name="duration" type="number">
-        </article>
-        <article>
-            <label for="level" class="floatLabel">Level</label>
-            <select name="level" id="">
-                <option  disabled selected value></option>
-                <option value="beginners">Beginners</option>
-                <option value="advanced">Advanced</option>
-                <option value="expert">Experts</option>
-            </select>
-        </article>
-          <article>
-              <input type="submit" value="Submit" id="submit">
-          </article>
-      </form>
+        </ng-container>
+    </article>
+  
+    <article>
+        <label for="level" class="floatLabel">Level</label>
+        <select name="level" id=""  #level='ngModel' ngModel required >
+       <!--      <option disabled [ngValue]= null></option> -->
+            <option *ngFor='let level of levels'>
+                {{level}}
+            </option>
+        </select>
+        <ng-container *ngIf="level.touched">
+            <span *ngIf="level.errors?.required">Level is required !</span>
+
+        </ng-container>
+    </article>
+    <article>
+        <input type="submit" value="Submit" id="submit">
+    </article>
+</form>

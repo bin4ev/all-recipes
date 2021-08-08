@@ -12,11 +12,7 @@ const routes: Routes = [
     {
         path: 'recipes',
         component: PostsComponent,
-        canActivate: [AuthActivate],
-        data: {
-            authRequared: false,
-            authRedirectUrl: '/home'
-        }
+    
     },
 
     {

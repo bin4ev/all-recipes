@@ -13,25 +13,24 @@ import { UserServiseService } from 'src/app/user/user-servise.service';
 })
 export class HeaderComponent {
 
-  get isLogged():boolean{
+  get isLogged() {
     return this.userService.isLogged
   }
-  get userEmail(){
+  get userEmail() {
     return this.userService.user?.email
   }
 
-  constructor(private userService: UserServiseService,private auth :AngularFireAuth,
-    private router:Router) {}
+  constructor(private userService: UserServiseService, private auth: AngularFireAuth,
+    private router: Router) { }
 
-    logout(){
-      this.userService.user= undefined
-      this.userService.logoutUser;
+  logout() {
 
 
-      this.router.navigate(['/login'])
-    }
-       
-      
+    this.userService.logoutUser();
+    this.router.navigate(['/login'])
+  }
+
+
 
 
 }

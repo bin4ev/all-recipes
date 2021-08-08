@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { NgForm, NgModelGroup } from '@angular/forms';
+import { Component, } from '@angular/core';
+import { NgForm, } from '@angular/forms';
 import { Router } from '@angular/router';
-import { fromEvent } from 'rxjs';
+
 import { UserServiseService } from '../user-servise.service';
 
 @Component({

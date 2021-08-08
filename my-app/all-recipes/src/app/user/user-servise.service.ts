@@ -3,6 +3,7 @@ import { AngularFireAuth, } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 
 import { Observable, } from 'rxjs';
+import { tap } from 'rxjs/operators';
 import { IUser } from '../share/interface';
 
 @Injectable({
@@ -11,82 +12,83 @@ import { IUser } from '../share/interface';
 
 export class UserServiseService {
 
-  user: IUser | undefined;
+  user: IUser | undefined | null=undefined;
 
-  get isLogged(): boolean {
+  get isLogged() {
     return !!this.user
+
   }
 
+  
 
   constructor(private authentication: AngularFireAuth, private router: Router,
   ) {
-    /* this.authentication.onAuthStateChanged
-      (user => {
-        if (user) {
-          console.log(user.email);
-          let { email, uid } = user
-          this.user = {
-            uid: uid!,
-            email: email!
-          }
-        }
-        else {
-          this.user = undefined
-        }
-      }) */
-  }
+      
+   }
 
 
-  register(data:{email: string, password: string}) {
+  register(data: { email: string, password: string }) {
 
-    this.authentication.createUserWithEmailAndPassword(data.email, data.password)
-      .then(value => {
-        console.log('SUCCSEED!');
+      this.authentication.createUserWithEmailAndPassword(data.email, data.password)
+        .then(value => {
+          console.log('SUCCSEED!');
 
-      })
-      .catch(error => {
-        console.log('Something went wrong: ', error)
+        })
+        .catch(error => {
+          console.log('Something went wrong: ', error)
 
-      })
+        })
 
-  }
-  login(email: string, password: string) {
+    }
+    login(email: string, password: string) {
 
       this.authentication.signInWithEmailAndPassword(email, password)
-          .then(data => {
-            console.log('user is succseedfull logged');
-        
-            let { email, uid } = data.user!
-                this.user = {
-                  uid: uid!,
-                  email: email!
-                } 
+        .then(data => {
+          console.log(data, 'user is (succseedfull logged');
+       
+          let { email, uid, } = data.user!
+          this.user = {
+            uid: uid!,
+            email: email!,
+          
+          }
 
-          }).catch(error => {
-            const errorMesage=error.message
-            console.log(error.message)
-            return errorMesage
-          })
-      
-      
+        }).catch(error => {
+          const errorMesage = error.message
+          console.log(error.message)
+          return errorMesage
+        })
+
+
+    }
+
+getUserInfo(){
+   return this.authentication.user.pipe(tap(user=>{
+     console.log(user?.email);
+     
+     let { email, uid, } = user!
+          this.user = {
+            uid: uid!,
+            email: email!,
+          
+          }
   }
-
-
-
-  logoutUser() {
-
-
-    this.authentication.signOut()
-      .then(() => {
-
-        console.log('work2')
-      }).catch(err => console.log(err))
-
-  }
-
-
-
-
-
-
+    )
+  )
 }
+
+    logoutUser() {
+      this.authentication.signOut()
+        .then(() => {
+         
+          console.log('User is sign out')
+        }).catch(err => console.log(err))
+
+    }
+
+
+
+
+
+
+  }

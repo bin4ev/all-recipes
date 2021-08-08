@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFirestoreModule, } from '@angular/fire/firestore';
 import { AngularFireAuthModule, } from '@angular/fire/auth';
+import { environment } from 'src/environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,7 +14,7 @@ import { RecipesModule } from './recipes/recipes.module';
 import { ShareModule } from './share/share.module';
 
 
-
+/* 
 var firebaseConfig = {
   apiKey: "AIzaSyAO2hwQ2wiG8qz-mcXQxnHj-mfghOJBjK8",
   authDomain: "angular-525d1.firebaseapp.com",
@@ -21,7 +22,7 @@ var firebaseConfig = {
   storageBucket: "angular-525d1.appspot.com",
   messagingSenderId: "211390953252",
   appId: "1:211390953252:web:6b0cb3349886da8020e5b1"
-};
+}; */
 
 
 
@@ -37,7 +38,7 @@ var firebaseConfig = {
     AppRoutingModule,
     ShareModule,
     
-    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth
   ],
