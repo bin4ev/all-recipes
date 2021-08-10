@@ -7,7 +7,7 @@ import { RegisterComponent } from './register/register.component';
 const routes: Routes = [
     {
         path:'',
-        redirectTo: '/login',
+        redirectTo: '/home',
         pathMatch:'full'
     },
     {
@@ -16,7 +16,7 @@ const routes: Routes = [
         canActivate:[AuthActivate],
         data:{
             authRequared: false,
-            authRedirectUrl : '/'
+            authRedirectUrl : '/home'
         }
     },
     {
@@ -25,7 +25,7 @@ const routes: Routes = [
         canActivate:[AuthActivate],
         data:{
             authRequared: false,
-            authRedirectUrl : '/'
+            authRedirectUrl : '/home'
         }
     }
 ];

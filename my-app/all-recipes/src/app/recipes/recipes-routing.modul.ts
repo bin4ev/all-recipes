@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthActivate } from '../core/guards/auth-activate';
+import { EditRecipeComponent } from './edit-recipe/edit-recipe.component';
 import { MyRecipesComponent } from './my-recipes/my-recipes.component';
 import { NewRecipeComponent } from './new-recipe/new-recipe.component';
 import { RecipeComponent } from './recipe/recipe.component';
@@ -12,12 +13,7 @@ const routes: Routes = [
     {
         path: 'recipes',
         component: PostsComponent,
-    
-    },
 
-    {
-        path: 'recipeId',
-        component: RecipeComponent
     },
 
     {
@@ -32,13 +28,41 @@ const routes: Routes = [
 
     {
         path: 'my-recipes',
-        component: MyRecipesComponent,
         canActivate: [AuthActivate],
         data: {
             authRequared: true,
             authRedirectUrl: '/login'
-        }
+        },
+        children: [
+            {
+                path: '',
+                pathMatch: 'full',
+                component: MyRecipesComponent,
+            },
+
+
+            {
+                path: 'recipe/:recipeId',
+                component: RecipeComponent,
+
+            },
+         
+
+
+
+
+
+
+
+
+        ],
+
+    },
+    {
+        path: 'edit/:recipeId',
+        component: EditRecipeComponent
     }
+
 ];
 
 @NgModule({

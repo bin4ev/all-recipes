@@ -80,8 +80,9 @@ getUserInfo(){
     logoutUser() {
       this.authentication.signOut()
         .then(() => {
-         
+          this.user= null;
           console.log('User is sign out')
+          this.router.navigate(['/login'])
         }).catch(err => console.log(err))
 
     }

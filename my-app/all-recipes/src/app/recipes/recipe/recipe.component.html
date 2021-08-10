@@ -1,12 +1,12 @@
-<p>WOrk ! recipe</p>
-<!-- <p>WOrk !</p>
+
+
 
 <div class="container">
-    <h1 class="title">Recipe</h1>
+    <h1 class="title">Recipe details</h1>
 <div >
-    <section class="post" >
+    <section class="post" *ngIf='post'>
         <article class="img-wrapper">
-            <img src={{post.imgUrl}}>
+            <img src={{post.image}}>
         </article>
         <article class="post-content">
             <h3 class="post-content-title" >{{post.title}}</h3>
@@ -17,10 +17,11 @@
             <p class="post-content-text"><span>Level:</span> {{post.level}}</p>
             <p class="post-content-text"><span>Duration:</span> {{post.duration}}</p>
         </article>
+        <button [routerLink]="['/edit',post.id]" class="button"><p>Edit</p> </button>
+        <button class="button" (click)='deleteRecipe()'><p>Delete</p></button>
     </section>
 
 </div>
 <div *ngIf="!post">Loading...</div>
-   
+    
 
-   -->

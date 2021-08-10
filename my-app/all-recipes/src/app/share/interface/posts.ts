@@ -1,5 +1,5 @@
 export interface iPosts{
-    imgUrl:string;
+    image:string;
     title:string;
     duration: number;
     ingrediants:string;
@@ -7,7 +7,7 @@ export interface iPosts{
     portions: number;
     preparation: string;
 category:string;
-idField: string;
+id: string;
 creatorId:string;
 
     

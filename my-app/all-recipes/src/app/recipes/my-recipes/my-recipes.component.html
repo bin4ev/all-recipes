@@ -3,8 +3,9 @@
     <h1 class="title">My Recipes</h1>
 <div *ngIf="posts">
     <section class="post" *ngFor=' let post of posts'>
+      
         <article class="img-wrapper">
-            <img src={{post.imgUrl}}>
+            <img src={{post.image}}>
         </article>
         <article class="post-content">
             <h3 class="post-content-title" >{{post.title}}</h3>
@@ -15,6 +16,7 @@
             <p class="post-content-text"><span>Level:</span> {{post.level}}</p>
             <p class="post-content-text"><span>Duration:</span> {{post.duration}}</p>
         </article>
+        <button class="button" [routerLink]="['recipe',post.id]"><p>Details</p></button>
     </section>
 
 </div>

@@ -1,5 +1,5 @@
-import { Component,  } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ContentService } from 'src/app/content.service';
 import { iPosts } from 'src/app/share/interface';
 @Component({
@@ -7,21 +7,32 @@ import { iPosts } from 'src/app/share/interface';
   templateUrl: './recipe.component.html',
   styleUrls: ['./recipe.component.css']
 })
-export class RecipeComponent  {
+export class RecipeComponent {
 
 
   post: iPosts | undefined;
 
-  constructor(private contentService:ContentService,
-    private activateRoute :ActivatedRoute) {
-/* this.fetchPost(); */
-   }
 
-  /*  fetchPost():void{
-     const id =this.activateRoute.snapshot.params.id;
-    const post= this.contentService.loadPost(id).
-    post.subscribe(post=>this.post=post)
-   } */
+  constructor(private contentService: ContentService,
+    private activatedRoute: ActivatedRoute,
+    private router:Router) {
+    this.fetchPost()
+  }
 
+
+  fetchPost(): void {
+
+    const id = this.activatedRoute.snapshot.params.recipeId
+    this.contentService.loadPost(id).subscribe(post => this.post = post)
+  }
+
+  deleteRecipe():void{
+    const id = this.post?.id
+    this.contentService.deleteCurentRecipe(id!).finally(()=>{
+      this.router.navigate(['my-recipes'])
+      console.log('Document as deleted !');
+      
+    })
+  }
 
 }

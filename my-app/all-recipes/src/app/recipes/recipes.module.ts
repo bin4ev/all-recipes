@@ -6,6 +6,7 @@ import { MyRecipesComponent } from './my-recipes/my-recipes.component';
 import { RecipesRoutingModule } from './recipes-routing.modul';
 import { RecipeComponent } from './recipe/recipe.component';
 import { FormsModule } from '@angular/forms';
+import { EditRecipeComponent } from './edit-recipe/edit-recipe.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { FormsModule } from '@angular/forms';
     PostsComponent,
     NewRecipeComponent,
     MyRecipesComponent,
-    RecipeComponent
+    RecipeComponent,
+    EditRecipeComponent
   ],
   imports: [
     RecipesRoutingModule,
