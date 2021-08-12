@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthActivate } from '../core/guards/auth-activate';
+
 import { EditRecipeComponent } from './edit-recipe/edit-recipe.component';
 import { MyRecipesComponent } from './my-recipes/my-recipes.component';
 import { NewRecipeComponent } from './new-recipe/new-recipe.component';
@@ -20,9 +21,10 @@ const routes: Routes = [
         path: 'new-recipe',
         component: NewRecipeComponent,
         canActivate: [AuthActivate],
+     
         data: {
             authRequared: true,
-            authRedirectUrl: '/login'
+            authRedirectUrl: '/home'
         }
     },
 
@@ -31,7 +33,7 @@ const routes: Routes = [
         canActivate: [AuthActivate],
         data: {
             authRequared: true,
-            authRedirectUrl: '/login'
+            authRedirectUrl: '/home'
         },
         children: [
             {

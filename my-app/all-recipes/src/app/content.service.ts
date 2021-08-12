@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { ErrorHandler, Injectable } from '@angular/core';
 import { AngularFirestore,} from '@angular/fire/firestore';
 
 import { iPosts } from './share/interface/posts';
@@ -13,7 +13,7 @@ export class ContentService {
 
   constructor(private db: AngularFirestore,
     private userService:UserServiseService,
-   
+   private errorHandler:ErrorHandler
   ) {}
   
   loadPosts(){
@@ -32,7 +32,8 @@ export class ContentService {
      
     })
     .catch((error) => {
-      console.error("Error adding document: ", error);
+      
+      this.errorHandler.handleError(error)
     });
 
   }

@@ -1,4 +1,4 @@
-import { Component, } from '@angular/core';
+import { Component, ErrorHandler, } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ContentService } from 'src/app/content.service';
 import { iPosts } from 'src/app/share/interface';
@@ -15,7 +15,8 @@ export class RecipeComponent {
 
   constructor(private contentService: ContentService,
     private activatedRoute: ActivatedRoute,
-    private router:Router) {
+    private router: Router,
+    private errorHandler: ErrorHandler) {
     this.fetchPost()
   }
 
@@ -23,16 +24,18 @@ export class RecipeComponent {
   fetchPost(): void {
 
     const id = this.activatedRoute.snapshot.params.recipeId
-    this.contentService.loadPost(id).subscribe(post => this.post = post)
+    this.contentService.loadPost(id).subscribe(
+      post => this.post = post,
+      error=>this.errorHandler.handleError(error))
   }
 
-  deleteRecipe():void{
+  deleteRecipe(): void {
     const id = this.post?.id
-    this.contentService.deleteCurentRecipe(id!).finally(()=>{
+    this.contentService.deleteCurentRecipe(id!).finally(() => {
       this.router.navigate(['my-recipes'])
       console.log('Document as deleted !');
-      
-    })
+
+    }).catch(error=>this.errorHandler.handleError(error))
   }
 
 }

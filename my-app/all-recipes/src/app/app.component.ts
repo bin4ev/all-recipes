@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ErrorHandler } from '@angular/core';
+import { IUser } from './share/interface';
 import { UserServiseService } from './user/user-servise.service';
 
 @Component({
@@ -8,15 +9,25 @@ import { UserServiseService } from './user/user-servise.service';
 })
 export class AppComponent {
 
-isAuthenticating():boolean{
-  return this.userService.user === undefined
-}
-  constructor(private userService : UserServiseService) {
-   this.userService.getUserInfo().subscribe({
-     error: ()=>{
-       this.userService.user = null;
-     }
-   })
+  user: IUser | undefined | null = undefined;
+
+
+
+  isAuthenticating(): boolean {
+    return this.userService.user === undefined
+  }
+
+  constructor(private userService: UserServiseService,
+    private errorHandler : ErrorHandler) {
+
+    this.userService.getUserInfo().subscribe({
+
+      error: (error) => {
+        this.errorHandler.handleError(error)
+        this.userService.user = null;
+      }
+      
+    });
   }
 
 

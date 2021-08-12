@@ -1,9 +1,10 @@
-import { Injectable, } from '@angular/core';
+
+import { ErrorHandler, Injectable, } from '@angular/core';
 import { AngularFireAuth, } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 
-import { Observable, } from 'rxjs';
-import { tap } from 'rxjs/operators';
+
+import {  tap } from 'rxjs/operators';
 import { IUser } from '../share/interface';
 
 @Injectable({
@@ -21,7 +22,10 @@ export class UserServiseService {
 
   
 
-  constructor(private authentication: AngularFireAuth, private router: Router,
+  constructor(private authentication: AngularFireAuth,
+     private router: Router,
+     private errorHandler : ErrorHandler
+     
   ) {
       
    }
@@ -37,7 +41,9 @@ export class UserServiseService {
         .catch(error => {
           console.log('Something went wrong: ', error)
 
+          this.errorHandler.handleError(error)
         })
+
 
     }
     login(email: string, password: string) {
@@ -54,16 +60,18 @@ export class UserServiseService {
           }
 
         }).catch(error => {
-          const errorMesage = error.message
+         
           console.log(error.message)
-          return errorMesage
+          
+       
+          
         })
 
 
     }
 
 getUserInfo(){
-   return this.authentication.user.pipe(tap(user=>{
+  return this.authentication.user.pipe(tap(user=>{
      console.log(user?.email);
      
      let { email, uid, } = user!
@@ -72,9 +80,16 @@ getUserInfo(){
             email: email!,
           
           }
-  }
-    )
+          console.log(this.isLogged);
+        
+        
+          
+                
+  }) 
   )
+  
+
+
 }
 
     logoutUser() {
@@ -83,7 +98,7 @@ getUserInfo(){
           this.user= null;
           console.log('User is sign out')
           this.router.navigate(['/login'])
-        }).catch(err => console.log(err))
+        }).catch(error=> this.errorHandler.handleError(error))
 
     }
 

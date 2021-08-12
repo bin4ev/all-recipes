@@ -4,34 +4,36 @@ import { AuthActivate } from '../core/guards/auth-activate';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
+
 const routes: Routes = [
     {
-        path:'',
+        path: '',
         redirectTo: '/home',
-        pathMatch:'full'
+        pathMatch: 'full'
     },
     {
         path: 'login',
         component: LoginComponent,
-        canActivate:[AuthActivate],
-        data:{
+     
+        canActivate: [AuthActivate],
+        data: {
             authRequared: false,
-            authRedirectUrl : '/home'
+            authRedirectUrl: '/home'
         }
     },
     {
         path: 'register',
         component: RegisterComponent,
-        canActivate:[AuthActivate],
-        data:{
+        canActivate: [AuthActivate],
+        data: {
             authRequared: false,
-            authRedirectUrl : '/home'
+            authRedirectUrl: '/home'
         }
     }
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forChild(routes)],
+    exports: [RouterModule]
 })
 export class UserRoutingModule { }

@@ -1,4 +1,4 @@
-import { Component, } from '@angular/core';
+import { Component, ErrorHandler, } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router , ActivatedRoute} from '@angular/router';
 import { ContentService } from 'src/app/content.service';
@@ -17,7 +17,8 @@ export class EditRecipeComponent {
 
   constructor(private contentService: ContentService,
     private activatedRoute: ActivatedRoute,
-    private router: Router) {
+    private router: Router,
+    private errorHandler:ErrorHandler) {
 
     this.fetchPost()
 
@@ -29,14 +30,17 @@ export class EditRecipeComponent {
     const data = { ...form.value }
     this.contentService.editCurentRecipe(data, id!).finally(()=>{
       this.router.navigate(['my-recipes','recipe',id])
-    }) 
+    }) .catch(error=>
+      this.errorHandler.handleError(error))
 
   }
 
   fetchPost(): void {
 
     const id = this.activatedRoute.snapshot.params.recipeId
-    this.contentService.loadPost(id).subscribe(post => this.post = post)
+    this.contentService.loadPost(id).subscribe(
+      post => this.post = post,
+      error=>this.errorHandler.handleError(error))
   }
 
  

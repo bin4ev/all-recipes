@@ -8,6 +8,8 @@ import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { UserServiseService } from '../user/user-servise.service';
 import { AuthActivate } from './guards/auth-activate';
+import { globalErrorHandlerProvider } from './error-handler';
+
 
 
 
@@ -19,6 +21,7 @@ import { AuthActivate } from './guards/auth-activate';
     FooterComponent,
     HomeComponent,
     PageNotFoundComponent,
+  
    
   ],
   imports: [
@@ -30,11 +33,14 @@ import { AuthActivate } from './guards/auth-activate';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
+    
   
 
   ],
   providers:[
-    UserServiseService,AuthActivate
+    UserServiseService,AuthActivate,
+    globalErrorHandlerProvider
+
   ]
 
 })
