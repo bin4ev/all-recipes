@@ -19,7 +19,7 @@
     <article>
         <label for="category" class="floatLabel">Category</label>
         <select name="category" #category='ngModel' ngModel required >
-         <!--    <option [ngValue]=null>--Select--</option> -->
+       
             <option *ngFor='let category of categories'>
                 {{category}}
             </option>
@@ -74,7 +74,7 @@
     <article>
         <label for="level" class="floatLabel">Level</label>
         <select name="level" id=""  #level='ngModel' ngModel required >
-       <!--      <option disabled [ngValue]= null></option> -->
+    
             <option *ngFor='let level of levels'>
                 {{level}}
             </option>
@@ -84,6 +84,12 @@
 
         </ng-container>
     </article>
+     <article>
+        <label for="createdBy" class="floatLabel">Created By</label>
+        <input  disabled id="" name="createdBy" type="text" [ngModel]='userEmail'>
+  
+    </article> 
+
     <article>
         <input type="submit" value="Submit" id="submit">
     </article>

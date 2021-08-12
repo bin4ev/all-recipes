@@ -9,23 +9,25 @@ import { UserServiseService } from '../user-servise.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent  {
-
-errorMessage:string | undefined;
-
-  constructor(private auth:UserServiseService,
-    private router:Router) { }
-
-    doLogin(form: NgForm) {
-      if(form.invalid){ return };
-      const {email, password}= form.value;
-        this.auth.login(email, password);
-        this.router.navigate(['/home']);
-      form.reset('');
+export class LoginComponent {
 
 
-       
-    }
+
+  constructor(private auth: UserServiseService,
+    private router: Router) { }
+
+  doLogin(form: NgForm) {
+
+    if (form.invalid) { return };
+    const { email, password } = form.value;
+
+    this.auth.login(email, password);
+    this.router.navigate(['/home']);
+    form.reset('');
+
+
+
+  }
 
 
 

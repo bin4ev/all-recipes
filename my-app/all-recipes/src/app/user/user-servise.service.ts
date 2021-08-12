@@ -61,7 +61,7 @@ export class UserServiseService {
 
         }).catch(error => {
          
-          console.log(error.message)
+          this.errorHandler.handleError(error)
           
        
           
@@ -73,13 +73,15 @@ export class UserServiseService {
 getUserInfo(){
   return this.authentication.user.pipe(tap(user=>{
      console.log(user?.email);
-     
-     let { email, uid, } = user!
-          this.user = {
-            uid: uid!,
-            email: email!,
-          
-          }
+     if(user){
+      let { email, uid, } = user!
+      this.user = {
+        uid: uid!,
+        email: email!,
+      
+      }
+     }
+   
           console.log(this.isLogged);
         
         
@@ -95,7 +97,7 @@ getUserInfo(){
     logoutUser() {
       this.authentication.signOut()
         .then(() => {
-          this.user= null;
+          this.user= undefined;
           console.log('User is sign out')
           this.router.navigate(['/login'])
         }).catch(error=> this.errorHandler.handleError(error))

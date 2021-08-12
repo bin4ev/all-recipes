@@ -6,9 +6,9 @@ export interface iPosts{
     level: string;
     portions: number;
     preparation: string;
-category:string;
-id: string;
-creatorId:string;
-
+    category:string;
+    id: string;
+    creatorId:string;
+    createdBy:string;
     
 }

@@ -14,16 +14,16 @@ export class AppComponent {
 
 
   isAuthenticating(): boolean {
-    return this.userService.user === undefined
+    return this.userService.user === null
   }
 
   constructor(private userService: UserServiseService,
-    private errorHandler : ErrorHandler) {
+ ) {
 
     this.userService.getUserInfo().subscribe({
 
-      error: (error) => {
-        this.errorHandler.handleError(error)
+      error: () => {
+        
         this.userService.user = null;
       }
       

@@ -10,12 +10,20 @@
             <article class="post-content">
              
                 <h3 class="post-content-title" >{{post.title}}</h3>
-                <p class="post-content-text"><span>Category:</span> {{post.category}}</p>
-                <p class="post-content-text"><span>Ingrediants:</span> {{post.ingrediants}}</p>
-                <p class="post-content-text"><span>Preparation:</span> {{post.preparation}}</p>
-                <p class="post-content-text"><span>Portions:</span> {{post.portions}}</p>
-                <p class="post-content-text"><span>Level:</span> {{post.level}}</p>
-                <p class="post-content-text"><span>Duration:</span> {{post.duration}}</p>
+                <ul class="post-content-text-description">
+                    <li class="post-content-text"><span>Category:</span> {{post.category}}</li>
+                    <li class="post-content-text"><span>Portions:</span> {{post.portions}}</li>
+                    <li class="post-content-text"><span>Level:</span> {{post.level}}</li>
+                    <li class="post-content-text"><span>Duration:</span> {{post.duration}}</li>
+                </ul>
+           
+                <ul class="post-content-text-preparation">
+                    <li class="post-content-text-preparation-items1"><p>Ingrediants:</p> {{post.ingrediants}}</li>
+                    <li class="post-content-text-preparation-items2"><p>Preparation:</p> {{post.preparation}}</li>
+                </ul>
+             
+               
+                <li class="author"><span>Created By:</span> {{post.createdBy}}</li>
             </article>
         </section>
     </div>

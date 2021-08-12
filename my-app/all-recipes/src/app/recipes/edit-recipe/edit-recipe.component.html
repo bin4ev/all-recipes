@@ -5,14 +5,14 @@
 
     <article>
         <label for="image" class="floatLabel">Image-url</label>
-        <input name="image" type="text" #imgUrl="ngModel" [ngModel]='post!.image' required>
+        <input name="image" type="text" #imgUrl="ngModel" [ngModel]='post?.image' required>
         <ng-container *ngIf="imgUrl.touched">
             <span *ngIf="imgUrl.errors?.required">Image-url is required !</span>
         </ng-container>
     </article>
     <article>
         <label for="title" class="floatLabel">Title</label>
-        <input id="title" name="title" type="text" #titleInput="ngModel" [ngModel]='post!.title' required>
+        <input id="title" name="title" type="text" #titleInput="ngModel" [ngModel]='post?.title' required>
         <ng-container *ngIf="titleInput.touched">
             <span *ngIf="titleInput.errors?.required">Title is required !</span>
             
@@ -20,7 +20,7 @@
     </article>
     <article>
         <label for="category" class="floatLabel">Category</label>
-        <select name="category" #category='ngModel' [ngModel]='post!.category' required >
+        <select name="category" #category='ngModel' [ngModel]='post?.category' required >
      
             <option *ngFor='let category of categories'>
                 {{category}}
@@ -35,7 +35,7 @@
     <article>
         <label for="ingrediants" class="floatLabel">Ingrediants</label>
 
-        <textarea id="" name="ingrediants" rows="5" cols="35.5" #ingrediants="ngModel" [ngModel]='post!.ingrediants' required>
+        <textarea id="" name="ingrediants" rows="5" cols="35.5" #ingrediants="ngModel" [ngModel]='post?.ingrediants' required>
          
     </textarea>
     <ng-container *ngIf="ingrediants.touched">
@@ -47,7 +47,7 @@
     <article>
         <label for="preparation" class="floatLabel">Preparation</label>
 
-        <textarea name="preparation" rows="5" cols="35.5" #preparations='ngModel' [ngModel]='post!.preparation' required>
+        <textarea name="preparation" rows="5" cols="35.5" #preparations='ngModel' [ngModel]='post?.preparation' required>
 
         </textarea>
         <ng-container *ngIf="preparations.touched">
@@ -58,7 +58,7 @@
 
     <article>
         <label for="portions" class="floatLabel">Portions</label>
-        <input id="" name="portions" type="number" #portions ="ngModel" [ngModel]='post!.portions' required>
+        <input id="" name="portions" type="number" #portions ="ngModel" [ngModel]='post?.portions' required>
         <ng-container *ngIf="portions.touched">
             <span *ngIf="portions.errors?.required">Portions are required !</span>
 
@@ -66,7 +66,7 @@
     </article>
     <article>
         <label for="duration" class="floatLabel">Duration</label>
-        <input id="" name="duration" type="number" #durations='ngModel' [ngModel]='post!.duration' required>
+        <input id="" name="duration" type="number" #durations='ngModel' [ngModel]='post?.duration' required>
         <ng-container *ngIf="durations.touched">
             <span *ngIf="durations.errors?.required">Durations is required !</span>
     
@@ -75,7 +75,7 @@
   
     <article>
         <label for="level" class="floatLabel">Level</label>
-        <select name="level" id=""  #level='ngModel' [ngModel]='post!.level' required >
+        <select name="level" id=""  #level='ngModel' [ngModel]='post?.level' required >
 
             <option *ngFor='let level of levels'>
                 {{level}}

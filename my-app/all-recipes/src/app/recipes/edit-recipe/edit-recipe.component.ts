@@ -26,9 +26,10 @@ export class EditRecipeComponent {
 
 
   editRecipe(form: NgForm): void {
+    if (form.invalid) { return };
     const id = this.post?.id
     const data = { ...form.value }
-    this.contentService.editCurentRecipe(data, id!).finally(()=>{
+    this.contentService.editCurentRecipe(data, id!).then(()=>{
       this.router.navigate(['my-recipes','recipe',id])
     }) .catch(error=>
       this.errorHandler.handleError(error))
