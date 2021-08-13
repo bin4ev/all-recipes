@@ -1,5 +1,6 @@
 import { Component, ErrorHandler, } from '@angular/core';
-import { ContentService } from 'src/app/content.service';
+import { ContentService } from 'src/app/core/services/content.service';
+
 import { iPosts } from 'src/app/share/interface/posts';
 @Component({
   selector: 'app-posts',

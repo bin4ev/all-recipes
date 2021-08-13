@@ -2,8 +2,9 @@ import { Component, OnDestroy,  } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { sameValueFactory } from 'src/app/share/validator';
-import { UserServiseService } from '../user-servise.service';
+
 import { Subject } from 'rxjs';
+import { UserServiseService } from 'src/app/core/services/user-servise.service';
 
 @Component({
   selector: 'app-register',

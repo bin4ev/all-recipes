@@ -8,8 +8,8 @@ import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { UserModule } from './user/user.module';
-import { ContentService } from './content.service';
+/* import { UserModule } from './user/user.module'; */
+/* import { ContentService } from './content.service'; */
 import { RecipesModule } from './recipes/recipes.module';
 import { ShareModule } from './share/share.module';
 import { ErrorHandlerComponent } from './error/error-handler/error-handler.component';
@@ -26,7 +26,7 @@ import { ErrorHandlerComponent } from './error/error-handler/error-handler.compo
   imports: [
     BrowserModule,
     CoreModule,
-    UserModule,
+  /*   UserModule, */
     RecipesModule,
     AppRoutingModule,
     ShareModule,
@@ -35,7 +35,7 @@ import { ErrorHandlerComponent } from './error/error-handler/error-handler.compo
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth
   ],
-  providers: [ContentService,
+  providers: [/* ContentService, */
   
 
   ],

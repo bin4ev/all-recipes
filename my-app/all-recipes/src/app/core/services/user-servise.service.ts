@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 
 
 import {  tap } from 'rxjs/operators';
-import { IUser } from '../share/interface';
+import { IUser } from '../../share/interface';
 
 @Injectable({
   providedIn: 'root'
@@ -99,7 +99,7 @@ getUserInfo(){
         .then(() => {
           this.user= undefined;
           console.log('User is sign out')
-          this.router.navigate(['/login'])
+          this.router.navigate(['/user/login'])
         }).catch(error=> this.errorHandler.handleError(error))
 
     }

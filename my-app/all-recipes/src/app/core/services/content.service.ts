@@ -1,8 +1,10 @@
 import { ErrorHandler, Injectable } from '@angular/core';
 import { AngularFirestore,} from '@angular/fire/firestore';
+import { iPosts } from 'src/app/share/interface';
 
-import { iPosts } from './share/interface/posts';
-import { UserServiseService } from './user/user-servise.service';
+
+import { UserServiseService } from './user-servise.service';
+
 
 @Injectable({
   providedIn: 'root'

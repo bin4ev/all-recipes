@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ContentService } from 'src/app/content.service';
-import { UserServiseService } from 'src/app/user/user-servise.service';
+
+import { ContentService } from 'src/app/core/services/content.service';
+import { UserServiseService } from 'src/app/core/services/user-servise.service';
 import { IUser } from 'src/app/share/interface';
 @Component({
   selector: 'app-new-recipe',

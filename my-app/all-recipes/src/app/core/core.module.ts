@@ -6,9 +6,10 @@ import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { UserServiseService } from '../user/user-servise.service';
+import { UserServiseService } from './services/user-servise.service';
 import { AuthActivate } from './guards/auth-activate';
 import { globalErrorHandlerProvider } from './error-handler';
+import { ContentService } from './services/content.service';
 
 
 
@@ -39,7 +40,9 @@ import { globalErrorHandlerProvider } from './error-handler';
   ],
   providers:[
     UserServiseService,AuthActivate,
-    globalErrorHandlerProvider
+    globalErrorHandlerProvider,
+    UserServiseService,
+    ContentService
 
   ]
 

@@ -3,7 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 
 
-import { UserServiseService } from 'src/app/user/user-servise.service';
+import { UserServiseService } from 'src/app/core/services/user-servise.service';
 
 @Component({
   selector: 'app-header',

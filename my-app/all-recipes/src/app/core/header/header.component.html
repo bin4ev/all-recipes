@@ -7,17 +7,17 @@
         <ul>
             <ul *ngIf='isLogged'>
                 <li>
-                    <a routerLink='/new-recipe'> NEW RECIPE</a>
+                    <a routerLink='allRecipes/new-recipe'> NEW RECIPE</a>
                 </li>
                 <li>
-                    <a routerLink='/my-recipes'>MY RECIPES</a>
+                    <a routerLink='allRecipes/my-recipes'>MY RECIPES</a>
                 </li>
                 <li>
                     Welcome :
                     {{userEmail}}
                 </li>
                 <li >
-                    <a routerLink='/' (click)='logout()'>Logout</a>
+                    <a routerLink='/user/register' (click)='logout()'>Logout</a>
                 </li>
             </ul>
 
@@ -27,14 +27,14 @@
                     <a routerLink="/home">HOME</a>
                 </li>
                 <li>
-                    <a routerLink='/recipes'>RECIPES</a>
+                    <a routerLink='allRecipes/recipes'>RECIPES</a>
                 </li>
 
                 <li>
-                    <a routerLink='/login'>LOGIN</a>
+                    <a routerLink='/user/login'>LOGIN</a>
                 </li>
                 <li>
-                    <a routerLink='/register'>REGISTER</a>
+                    <a routerLink='/user/register'>REGISTER</a>
                 </li>
 
             </ul>

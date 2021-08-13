@@ -1,12 +1,10 @@
+.loading{
+    background: linear-gradient(
+        90deg
+        , rgba(247,247,247,1) 14%, rgba(186,195,207,1) 45%, rgba(123,131,146,1) 82%);   
+}
 
 
-/* .container{
-    display: flex;
-    flex-direction: column;
-    margin: auto 0px;
-    flex-wrap: wrap;
-    background: linear-gradient(90deg, rgba(247,247,247,1) 14%, rgba(186,195,207,1) 45%, rgba(123,131,146,1) 82%);
-} */
 .post{
 border: solid rgb(233, 229, 229) 1px;
 box-shadow: inset 2px 1px 16px 5px #bbb1b1;

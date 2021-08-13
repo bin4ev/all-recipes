@@ -16,6 +16,15 @@ path:'home',
   component: HomeComponent
 },
 {
+  path:'allRecipes',
+  loadChildren:()=>import('./recipes/recipes.module').then(modul=>modul.RecipesModule)
+},
+{
+  path: 'user',
+  loadChildren:()=> import('./user/user.module').then(modul=>modul.UserModule)
+},
+
+{
   path: 'error',
   component: ErrorHandlerComponent
 },

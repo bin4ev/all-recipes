@@ -1,7 +1,7 @@
 import { Component, ErrorHandler, } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router , ActivatedRoute} from '@angular/router';
-import { ContentService } from 'src/app/content.service';
+import { ContentService } from 'src/app/core/services/content.service';
 import { iPosts } from 'src/app/share/interface';
 
 @Component({

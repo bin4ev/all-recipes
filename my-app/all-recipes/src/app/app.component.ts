@@ -1,6 +1,6 @@
 import { Component, ErrorHandler } from '@angular/core';
 import { IUser } from './share/interface';
-import { UserServiseService } from './user/user-servise.service';
+import { UserServiseService } from './core/services/user-servise.service';
 
 @Component({
   selector: 'app-root',

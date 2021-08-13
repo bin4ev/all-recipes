@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { UserRoutingModule } from './user-routing.modul';
-import { UserServiseService } from './user-servise.service';
+
 import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
 import { ShareModule } from '../share/share.module';
+import { UserServiseService } from '../core/services/user-servise.service';
 
 
 
@@ -26,7 +27,7 @@ import { ShareModule } from '../share/share.module';
     UserRoutingModule,
   ],
   providers:[
-    UserServiseService
+  UserServiseService
   ]
 })
 export class UserModule { }
