@@ -33,7 +33,7 @@ export class NewRecipeComponent {
     const creatorId = this.userService.user?.uid
    const createdBy = this.userService.user?.email
     const data = { ...form.value, creatorId,createdBy };
-
+  
     this.contentService.addReciep(data);
     this.router.navigate(['/home'])
 

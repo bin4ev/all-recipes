@@ -8,6 +8,11 @@ import { RecipeComponent } from './recipe/recipe.component';
 import { FormsModule } from '@angular/forms';
 import { EditRecipeComponent } from './edit-recipe/edit-recipe.component';
 import { NewRecipeComponent } from './new-recipe/new-recipe.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FilterPipe } from '../core/pipes/filter.pipe';
+
+
+
 
 
 @NgModule({
@@ -16,17 +21,21 @@ import { NewRecipeComponent } from './new-recipe/new-recipe.component';
     NewRecipeComponent,
     MyRecipesComponent,
     RecipeComponent,
-    EditRecipeComponent
+    EditRecipeComponent,
+    FilterPipe,
+ 
   ],
   imports: [
     RecipesRoutingModule,
     CommonModule,
     FormsModule,
+    FontAwesomeModule
   ],
   exports:[
     PostsComponent,
     NewRecipeComponent,
-    MyRecipesComponent
+    MyRecipesComponent,
+    FilterPipe,
   ]
 })
 export class RecipesModule { }

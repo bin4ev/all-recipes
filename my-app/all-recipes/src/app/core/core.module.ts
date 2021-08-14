@@ -10,6 +10,8 @@ import { UserServiseService } from './services/user-servise.service';
 import { AuthActivate } from './guards/auth-activate';
 import { globalErrorHandlerProvider } from './error-handler';
 import { ContentService } from './services/content.service';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 
 
 
@@ -23,11 +25,13 @@ import { ContentService } from './services/content.service';
     HomeComponent,
     PageNotFoundComponent,
   
+  
    
   ],
   imports: [
     CommonModule,
     RouterModule,
+    FontAwesomeModule
     
   ],
   exports: [

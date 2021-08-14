@@ -16,6 +16,7 @@ export class RecipeComponent {
   constructor(private contentService: ContentService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
+    
     private errorHandler: ErrorHandler) {
     this.fetchPost()
   }

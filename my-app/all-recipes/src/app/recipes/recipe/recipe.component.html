@@ -4,23 +4,6 @@
 <div class="container" *ngIf='post' >
     <h1 class="title">{{post.title}} details</h1>
 <div >
-<!--     <section class="post" *ngIf='post'>
-        <article class="img-wrapper">
-            <img src={{post.image}}>
-        </article>
-        <article class="post-content">
-            <h3 class="post-content-title" >{{post.title}}</h3>
-            <p class="post-content-text"><span>Category:</span> {{post.category}}</p>
-            <p class="post-content-text"><span>Ingrediants:</span> {{post.ingrediants}}</p>
-            <p class="post-content-text"><span>Preparation:</span> {{post.preparation}}</p>
-            <p class="post-content-text"><span>Portions:</span> {{post.portions}}</p>
-            <p class="post-content-text"><span>Level:</span> {{post.level}}</p>
-            <p class="post-content-text"><span>Duration:</span> {{post.duration}}</p>
-            <p class="post-content-text"><span>Created By:</span> {{post.createdBy}}</p>
-        </article>
-        <button [routerLink]="['/edit',post.id]" class="button"><p>Edit</p> </button>
-        <button class="button" (click)='deleteRecipe()'><p>Delete</p></button>
-    </section> -->
 
     <section class="post" *ngIf='post'>
         
@@ -34,7 +17,7 @@
                 <li class="post-content-text"><span>Category:</span> {{post.category}}</li>
                 <li class="post-content-text"><span>Portions:</span> {{post.portions}}</li>
                 <li class="post-content-text"><span>Level:</span> {{post.level}}</li>
-                <li class="post-content-text"><span>Duration:</span> {{post.duration}}</li>
+                <li class="post-content-text"><span>Duration:</span> {{post.duration}} min</li>
             </ul>
        
             <ul class="post-content-text-preparation">

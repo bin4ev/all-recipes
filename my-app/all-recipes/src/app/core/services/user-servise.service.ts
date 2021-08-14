@@ -99,7 +99,7 @@ getUserInfo(){
         .then(() => {
           this.user= undefined;
           console.log('User is sign out')
-          this.router.navigate(['/user/login'])
+  
         }).catch(error=> this.errorHandler.handleError(error))
 
     }
