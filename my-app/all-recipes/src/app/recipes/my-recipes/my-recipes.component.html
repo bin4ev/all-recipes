@@ -1,9 +1,14 @@
 
 <div class="container">
+    <ng-container *ngIf="posts?.length===0">
+        <h3 class="title" >You dont have any recipes !</h3>
+    </ng-container>
+   <ng-container *ngIf="posts?.length!==0">
+       
+   </ng-container>
+  
+<div *ngIf="posts?.length!==0">
     <h1 class="title">My Recipes</h1>
-<div *ngIf="posts">
-
-
     <section class="post" *ngFor=' let post of posts'>
         
         <article class="img-wrapper">
@@ -31,6 +36,7 @@
     </section>
 
 </div>
+
 <div class="loading"  *ngIf="!posts">
     Loading...
     

@@ -31,7 +31,7 @@ export class RegisterComponent implements OnDestroy {
     if (form.invalid) { return }
 
     this.auth.register(this.form.value)
-    this.router.navigate(['login']);
+    this.router.navigate(['/']);
 
   }
 

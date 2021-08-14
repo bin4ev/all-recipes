@@ -35,7 +35,7 @@ export class NewRecipeComponent {
     const data = { ...form.value, creatorId,createdBy };
   
     this.contentService.addReciep(data);
-    this.router.navigate(['/home'])
+    this.router.navigate(['/allRecipes/my-recipes'])
 
 
   }
