@@ -56,7 +56,7 @@
 
     <article>
         <label for="portions" class="floatLabel">Portions</label>
-        <input id="" name="portions" type="number" #portions ="ngModel" ngModel required>
+        <input id="" name="portions" type="number" min="0" #portions ="ngModel" ngModel required>
         <ng-container *ngIf="portions.touched">
             <span *ngIf="portions.errors?.required">Portions are required !</span>
 
