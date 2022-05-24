@@ -1,4 +1,4 @@
-import { Component, OnDestroy,  } from '@angular/core';
+import { Component, OnDestroy, } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { sameValueFactory } from 'src/app/share/validator';
@@ -20,10 +20,10 @@ export class RegisterComponent implements OnDestroy {
     private auth: UserServiseService,
     private router: Router,
     private fb: FormBuilder) {
-    this.form = fb.group({
+    this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(4)]],
-      rePassword: ['', [Validators.required, sameValueFactory(()=>this.form?.get('password'), this.killSubscription)]]
+      rePassword: ['', [Validators.required, sameValueFactory(() => this.form?.get('password'), this.killSubscription)]]
     })
   }
 
@@ -32,7 +32,6 @@ export class RegisterComponent implements OnDestroy {
 
     this.auth.register(this.form.value)
     this.router.navigate(['/']);
-
   }
 
   ngOnDestroy(): void {

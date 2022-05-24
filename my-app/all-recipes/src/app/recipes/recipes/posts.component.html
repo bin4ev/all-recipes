@@ -6,24 +6,22 @@
             <button class="btn-search" (click)="getFilter(search.value)">
                 <fa-icon [icon]="icons.faSearchIcon"></fa-icon>
             </button>
-            <input type="text" class="input-search" name="search" placeholder="Type to Search..." #search autocomplete="off" >
+            <input type="text" class="input-search" name="search" placeholder="Type to Search..." #search
+                autocomplete="off">
         </div>
     </article>
 
     <div *ngIf="isFilter">
         <h1 class="post-title">Recipe Results for: <span class="searchInput">{{search.value}}</span></h1>
-      
+
         <div class="post-wrapper">
             <h2 class="title">{{(posts | filter: search.value).length}} Results</h2>
             <div *ngIf='(posts | filter : search.value).length==0'></div>
-
             <section class="post" *ngFor="let post of posts | filter: search.value">
-
                 <article class="img-wrapper">
                     <img src={{post.image}}>
                 </article>
                 <article class="post-content">
-
                     <h3 class="post-content-title">{{post.title}}</h3>
                     <ul class="post-content-text-description">
                         <li class="post-content-text"><span>Category:</span> {{post.category}}</li>
@@ -31,7 +29,6 @@
                         <li class="post-content-text"><span>Level:</span> {{post.level}}</li>
                         <li class="post-content-text"><span>Duration:</span> {{post.duration}} min</li>
                     </ul>
-
                     <ul class="post-content-text-preparation">
                         <li class="post-content-text-preparation-items1">
                             <p>Ingrediants:</p> {{post.ingrediants}}
@@ -40,8 +37,6 @@
                             <p>Preparation:</p> {{post.preparation}}
                         </li>
                     </ul>
-
-
                     <li class="author"><span>Created By:</span> {{post.createdBy}}</li>
                 </article>
             </section>
@@ -51,7 +46,7 @@
     </div>
 
     <div *ngIf="isFilter=== false">
-    
+
         <div class="post-wrapper">
             <section class="post" *ngFor=' let post of posts'>
 

@@ -21,7 +21,6 @@ const routes: Routes = [
         path: 'new-recipe',
         component: NewRecipeComponent,
         canActivate: [AuthActivate],
-     
         data: {
             authRequared: true,
             authRedirectUrl: '/home'
@@ -48,17 +47,7 @@ const routes: Routes = [
                 component: RecipeComponent,
 
             },
-         
-
-
-
-
-
-
-
-
         ],
-
     },
     {
         path: 'edit/:recipeId',

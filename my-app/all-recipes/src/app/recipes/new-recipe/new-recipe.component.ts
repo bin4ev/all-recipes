@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 
 import { ContentService } from 'src/app/core/services/content.service';
 import { UserServiseService } from 'src/app/core/services/user-servise.service';
-import { IUser } from 'src/app/share/interface';
 @Component({
   selector: 'app-new-recipe',
   templateUrl: './new-recipe.component.html',
@@ -14,30 +13,30 @@ export class NewRecipeComponent {
 
   categories: any = ['Starter', 'Main Courses', 'Desserts', 'others'];
   levels: any = ['Beginers', 'Advance', 'Expert'];
- userEmail =this.getUserEmail();
+  userEmail
 
   constructor(
     private contentService: ContentService,
     private router: Router,
     private userService: UserServiseService) {
-
-   
+    this.userEmail = this.getUserEmail()
   }
-  getUserEmail(){
-    return  this.userService.user?.email
-   
+
+  getUserEmail() {
+    return this.userService.user?.email
   }
 
   createRecipe(form: NgForm): void {
-    if (form.invalid) { return };
+    if (form.invalid) {
+      return
+    }
+
     const creatorId = this.userService.user?.uid
-   const createdBy = this.userService.user?.email
-    const data = { ...form.value, creatorId,createdBy };
-  
+    const createdBy = this.userService.user?.email
+    const data = { ...form.value, creatorId, createdBy };
+
     this.contentService.addReciep(data);
     this.router.navigate(['/allRecipes/my-recipes'])
-
-
   }
 
 

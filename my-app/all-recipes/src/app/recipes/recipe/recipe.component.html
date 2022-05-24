@@ -1,41 +1,36 @@
-
-
-
-<div class="container" *ngIf='post' >
+<div class="container" *ngIf='post'>
     <h1 class="title">{{post.title}} details</h1>
-<div >
-
-    <section class="post" *ngIf='post'>
-        
-        <article class="img-wrapper">
-            <img src={{post.image}}>
-        </article>
-        <article class="post-content">
-         
-            <h3 class="post-content-title" >{{post.title}}</h3>
-            <ul class="post-content-text-description">
-                <li class="post-content-text"><span>Category:</span> {{post.category}}</li>
-                <li class="post-content-text"><span>Portions:</span> {{post.portions}}</li>
-                <li class="post-content-text"><span>Level:</span> {{post.level}}</li>
-                <li class="post-content-text"><span>Duration:</span> {{post.duration}} min</li>
-            </ul>
-       
-            <ul class="post-content-text-preparation">
-                <li class="post-content-text-preparation-items1"><p>Ingrediants:</p> {{post.ingrediants}}</li>
-                <li class="post-content-text-preparation-items2"><p>Preparation:</p> {{post.preparation}}</li>
-            </ul>
-         
-           
-            <li class="author"><span>Created By:</span> {{post.createdBy}}</li>
-        </article>
-        <article class="buttons-wrapper">
-            <button [routerLink]="['/edit',post.id]" class="button"><p>Edit</p> </button>
-            <button class="button" (click)='deleteRecipe()'><p>Delete</p></button>
-        </article>
-
-    </section>
-
-</div>
-<div *ngIf="!post">Loading...</div>
-    
-
+    <div>
+        <section class="post" *ngIf='post'>
+            <article class="img-wrapper">
+                <img src={{post.image}}>
+            </article>
+            <article class="post-content">
+                <h3 class="post-content-title">{{post.title}}</h3>
+                <ul class="post-content-text-description">
+                    <li class="post-content-text"><span>Category:</span> {{post.category}}</li>
+                    <li class="post-content-text"><span>Portions:</span> {{post.portions}}</li>
+                    <li class="post-content-text"><span>Level:</span> {{post.level}}</li>
+                    <li class="post-content-text"><span>Duration:</span> {{post.duration}} min</li>
+                </ul>
+                <ul class="post-content-text-preparation">
+                    <li class="post-content-text-preparation-items1">
+                        <p>Ingrediants:</p> {{post.ingrediants}}
+                    </li>
+                    <li class="post-content-text-preparation-items2">
+                        <p>Preparation:</p> {{post.preparation}}
+                    </li>
+                </ul>
+                <li class="author"><span>Created By:</span> {{post.createdBy}}</li>
+            </article>
+            <article class="buttons-wrapper">
+                <button [routerLink]="['/edit',post.id]" class="button">
+                    <p>Edit</p>
+                </button>
+                <button class="button" (click)='deleteRecipe()'>
+                    <p>Delete</p>
+                </button>
+            </article>
+        </section>
+    </div>
+    <div *ngIf="!post">Loading...</div>

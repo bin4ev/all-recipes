@@ -13,53 +13,40 @@
         <input id="title" name="title" type="text" #titleInput="ngModel" ngModel required>
         <ng-container *ngIf="titleInput.touched">
             <span *ngIf="titleInput.errors?.required">Title is required !</span>
-            
         </ng-container>
     </article>
     <article>
         <label for="category" class="floatLabel">Category</label>
-        <select name="category" #category='ngModel' ngModel required >
-       
+        <select name="category" #category='ngModel' ngModel required>
             <option *ngFor='let category of categories'>
                 {{category}}
             </option>
         </select>
         <ng-container *ngIf="category.touched">
             <span *ngIf="category.errors?.required">Category is required !</span>
-
         </ng-container>
     </article>
-
     <article>
         <label for="ingrediants" class="floatLabel">Ingrediants</label>
-
         <textarea id="" name="ingrediants" rows="5" cols="35.5" #ingrediants="ngModel" ngModel required>
-         
     </textarea>
-    <ng-container *ngIf="ingrediants.touched">
-        <span *ngIf="ingrediants.errors?.required">Ingrediants are required !</span>
-
-    </ng-container>
+        <ng-container *ngIf="ingrediants.touched">
+            <span *ngIf="ingrediants.errors?.required">Ingrediants are required !</span>
+        </ng-container>
     </article>
-
     <article>
         <label for="preparation" class="floatLabel">Preparation</label>
-
         <textarea name="preparation" rows="5" cols="35.5" #preparations='ngModel' ngModel required>
-
         </textarea>
         <ng-container *ngIf="preparations.touched">
             <span *ngIf="preparations.errors?.required">Descriptions is required !</span>
-
         </ng-container>
     </article>
-
     <article>
         <label for="portions" class="floatLabel">Portions</label>
-        <input id="" name="portions" type="number" min="0" #portions ="ngModel" ngModel required>
+        <input id="" name="portions" type="number" min="0" #portions="ngModel" ngModel required>
         <ng-container *ngIf="portions.touched">
             <span *ngIf="portions.errors?.required">Portions are required !</span>
-
         </ng-container>
     </article>
     <article>
@@ -67,29 +54,23 @@
         <input id="" name="duration" type="number" #durations='ngModel' ngModel required>
         <ng-container *ngIf="durations.touched">
             <span *ngIf="durations.errors?.required">Durations is required !</span>
-    
         </ng-container>
     </article>
-  
     <article>
         <label for="level" class="floatLabel">Level</label>
-        <select name="level" id=""  #level='ngModel' ngModel required >
-    
+        <select name="level" id="" #level='ngModel' ngModel required>
             <option *ngFor='let level of levels'>
                 {{level}}
             </option>
         </select>
         <ng-container *ngIf="level.touched">
             <span *ngIf="level.errors?.required">Level is required !</span>
-
         </ng-container>
     </article>
-     <article>
+    <article>
         <label for="createdBy" class="floatLabel">Created By</label>
-        <input  disabled id="" name="createdBy" type="text" [ngModel]='userEmail'>
-  
-    </article> 
-
+        <input disabled id="" name="createdBy" type="text" [ngModel]='userEmail'>
+    </article>
     <article>
         <input type="submit" value="Submit" id="submit">
     </article>

@@ -8,26 +8,21 @@ import { iPosts } from 'src/app/share/interface';
   styleUrls: ['./recipe.component.css']
 })
 export class RecipeComponent {
-
-
   post: iPosts | undefined;
-
 
   constructor(private contentService: ContentService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    
     private errorHandler: ErrorHandler) {
     this.fetchPost()
   }
 
 
   fetchPost(): void {
-
     const id = this.activatedRoute.snapshot.params.recipeId
     this.contentService.loadPost(id).subscribe(
       post => this.post = post,
-      error=>this.errorHandler.handleError(error))
+      error => this.errorHandler.handleError(error))
   }
 
   deleteRecipe(): void {
@@ -35,8 +30,7 @@ export class RecipeComponent {
     this.contentService.deleteCurentRecipe(id!).finally(() => {
       this.router.navigate(['my-recipes'])
       console.log('Document as deleted !');
-
-    }).catch(error=>this.errorHandler.handleError(error))
+    }).catch(error => this.errorHandler.handleError(error))
   }
 
 }

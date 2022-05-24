@@ -24,9 +24,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FooterComponent,
     HomeComponent,
     PageNotFoundComponent,
-  
-  
-   
   ],
   imports: [
     CommonModule,
@@ -38,9 +35,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    
-  
-
   ],
   providers:[
     UserServiseService,AuthActivate,

@@ -8,34 +8,16 @@ import { UserServiseService } from "src/app/core/services/user-servise.service";
 @Injectable()
 export class AuthActivate implements CanActivate {
 
-    constructor(private router: Router, private userService: UserServiseService) {
-        
-     }
+    constructor(private router: Router, private userService: UserServiseService) { }
 
-    canActivate(
-        route: ActivatedRouteSnapshot,
-        state: RouterStateSnapshot,
-        
-    ): boolean | UrlTree | Observable<boolean | UrlTree> | boolean | UrlTree {
-
+    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot,): boolean | UrlTree | Observable<boolean | UrlTree> | boolean | UrlTree {
         const { authRequared, authRedirectUrl } = route.data;
 
-        if (typeof authRequared === 'boolean' && 
-            authRequared === this.userService.isLogged){ 
-                return true ;
-            }else{
-       
-                return this.router.parseUrl(authRedirectUrl || '/home');
-            }
-           
-            
-            
+        if (typeof authRequared === 'boolean' &&
+            authRequared === this.userService.isLogged) {
+            return true;
+        } else {
+            return this.router.parseUrl(authRedirectUrl || '/home');
+        }
     }
-   
-
-
-
-
-
-
 }

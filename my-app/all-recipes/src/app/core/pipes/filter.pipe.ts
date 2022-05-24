@@ -5,17 +5,19 @@ import { iPosts } from 'src/app/share/interface';
 })
 export class FilterPipe implements PipeTransform {
 
-  transform(items : iPosts[] | undefined, searchText: string): any[] {
+  transform(items: iPosts[] | undefined, searchText: string): any[] {
     if (!items) {
-      return [];
+      return []
     }
+
     if (!searchText) {
-      return items;
+      return items
     }
+
     searchText = searchText.toLocaleLowerCase();
 
     return items.filter(it => {
-      return it.title.toLocaleLowerCase().includes(searchText);
+      return it.title.toLocaleLowerCase().includes(searchText)
     });
   }
 

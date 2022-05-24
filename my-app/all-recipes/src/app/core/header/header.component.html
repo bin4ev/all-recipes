@@ -1,7 +1,6 @@
 <div class="header-container">
     <article class="logo-wrapper">
         <a routerLink='/home'> <img class="logo" src="assets/logo/logo.png"></a>
-
     </article>
     <article class="nav">
         <ul>
@@ -16,13 +15,12 @@
                     Welcome :
                     {{userEmail}}
                 </li>
-                <li >
+                <li>
                     <a routerLink='/' (click)='logout()'>Logout</a>
                 </li>
             </ul>
 
             <ul *ngIf='!isLogged'>
-
                 <li>
                     <a routerLink="/home">HOME</a>
                 </li>
@@ -36,13 +34,7 @@
                 <li>
                     <a routerLink='/user/register'>REGISTER</a>
                 </li>
-
             </ul>
-
-
-
-
         </ul>
     </article>
-
 </div>

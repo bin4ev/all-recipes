@@ -3,7 +3,6 @@
     display:flex;
     align-items: center;
     justify-content: space-between;
-  
     background: linear-gradient(90deg, rgba(247,247,247,1) 14%, rgba(186,195,207,1) 45%, rgba(123,131,146,1) 82%);
 }
 

@@ -17,12 +17,9 @@ export class MyRecipesComponent {
   }
 
   fetchMyRecipes() {
-    const myRecipes = this.contentService.loadMyRecipes().valueChanges({ idField: 'id' })
-    myRecipes.subscribe(
+    this.contentService.loadMyRecipes().valueChanges({ idField: 'id' }).subscribe(
       recipe => this.posts = recipe,
       error => this.errorHandler.handleError(error))
-
-
   }
 
 }

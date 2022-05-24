@@ -12,24 +12,16 @@ import { UserServiseService } from 'src/app/core/services/user-servise.service';
 })
 export class LoginComponent {
 
-
-
-  constructor(private auth: UserServiseService,
-    private router: Router) { }
+  constructor(private auth: UserServiseService, private router: Router) { }
 
   doLogin(form: NgForm) {
+    if (form.invalid) {
+      return
+    }
 
-    if (form.invalid) { return };
     const { email, password } = form.value;
-
     this.auth.login(email, password);
     this.router.navigate(['/home']);
     form.reset('');
-
-
-
   }
-
-
-
 }
