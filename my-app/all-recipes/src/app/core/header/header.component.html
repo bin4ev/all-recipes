@@ -16,7 +16,13 @@
                     {{userEmail}}
                 </li>
                 <li>
-                    <a routerLink='/' (click)='logout()'>Logout</a>
+                    <div [matMenuTriggerFor]="userMenu">
+                        <mat-icon>more_horiz</mat-icon>
+                        <mat-menu #userMenu="matMenu">
+                            <option mat-menu-item>Change Password</option>
+                            <option  mat-menu-item routerLink='/' (click)='logout()'>Logout</option>
+                        </mat-menu>
+                    </div>
                 </li>
             </ul>
 

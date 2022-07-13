@@ -11,17 +11,22 @@ import { UserServiseService } from 'src/app/core/services/user-servise.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  submitting = false
 
   constructor(private auth: UserServiseService, private router: Router) { }
 
   doLogin(form: NgForm) {
-    if (form.invalid) {
+    if (form.invalid || this.submitting) {
       return
     }
-
+    this.submitting = true
     const { email, password } = form.value;
-    this.auth.login(email, password);
-    this.router.navigate(['/home']);
-    form.reset('');
+    this.auth.login(email, password).finally(() => {
+    this.submitting = false
+      this.router.navigate(['/home'])
+      form.reset('');
+    })
+
+
   }
 }

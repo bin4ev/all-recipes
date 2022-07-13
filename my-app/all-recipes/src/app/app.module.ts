@@ -12,11 +12,7 @@ import { CoreModule } from './core/core.module';
 import { RecipesModule } from './recipes/recipes.module';
 import { ShareModule } from './share/share.module';
 import { ErrorHandlerComponent } from './error/error-handler/error-handler.component';
-
-
-
-
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -31,10 +27,11 @@ import { ErrorHandlerComponent } from './error/error-handler/error-handler.compo
     RecipesModule,
     AppRoutingModule,
     ShareModule,
+    BrowserAnimationsModule,
  
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule, // firestore
-    AngularFireAuthModule, // auth
+    AngularFireAuthModule, BrowserAnimationsModule, // auth
   ],
   providers: [
 

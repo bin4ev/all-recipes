@@ -5,7 +5,6 @@ import { UserServiseService } from 'src/app/core/services/user-servise.service';
 
 @Component({
   selector: 'app-header',
-  template: `<img src="assets/logo/logo.png">`,
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })

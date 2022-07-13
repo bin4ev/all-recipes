@@ -1,46 +1,53 @@
 ul {
     font-size: 40px;
 }
+
 .footer {
- 
-    background: linear-gradient(90deg, rgba(247,247,247,1) 14%, rgba(186,195,207,1) 45%, rgba(123,131,146,1) 82%);
+
+    background: linear-gradient(177deg,#673ab7 10%,#fc3752 100%);
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.logo-wrapper{
+.logo-wrapper {
     padding-top: 20px;
     max-width: 280px;
-   
+
 }
-.logo{
+
+.logo {
     width: 100%;
     object-fit: contain;
     border-radius: 10px;
-    background: linear-gradient(90deg, rgba(247,247,247,1) 14%, rgba(186,195,207,1) 45%, rgba(123,131,146,1) 82%);
+    background: linear-gradient(90deg, rgba(247, 247, 247, 1) 14%, rgba(186, 195, 207, 1) 45%, rgba(123, 131, 146, 1) 82%);
 }
-span{
+
+span {
     font-weight: bolder;
 }
-.footer-text{
+
+.footer-text {
     font-size: 16px;
     padding: 10px;
 }
+
 .footer-contact-text {
-    color:#44564D
-}
-.footer-contact-text a{
-    color:#782701
+    color: #44564D
 }
 
-.footer-icon ul{
+.footer-contact-text a {
+    color: #782701
+}
+
+.footer-icon ul {
 
     display: flex;
     list-style: none;
-   color: white;
+    color: white;
 }
-.footer-icon>ul>li{
- margin-right: 15px;
- cursor: pointer;
+
+.footer-icon>ul>li {
+    margin-right: 15px;
+    cursor: pointer;
 }

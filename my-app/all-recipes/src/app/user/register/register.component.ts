@@ -14,6 +14,7 @@ import { UserServiseService } from 'src/app/core/services/user-servise.service';
 export class RegisterComponent implements OnDestroy {
 
   killSubscription = new Subject();
+  submitting = false
   form: FormGroup;
 
   constructor(
@@ -28,10 +29,15 @@ export class RegisterComponent implements OnDestroy {
   }
 
   signIn(form: FormGroup) {
-    if (form.invalid) { return }
-
-    this.auth.register(this.form.value)
-    this.router.navigate(['/']);
+    if (form.invalid || this.submitting) {
+      return
+    }
+    this.submitting = true
+    this.auth.register(this.form.value).finally(() => {
+      this.submitting = false
+        this.router.navigate(['/'])
+        form.reset('');
+      })
   }
 
   ngOnDestroy(): void {

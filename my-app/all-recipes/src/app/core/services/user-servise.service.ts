@@ -21,29 +21,28 @@ export class UserServiseService {
     private errorHandler: ErrorHandler
   ) { }
 
-  register(data: { email: string, password: string }) {
-    this.authentication.createUserWithEmailAndPassword(data.email, data.password)
-      .then(value => {
-        console.log('SUCCSEED!');
-      })
-      .catch(error => {
-        console.log('Something went wrong: ', error)
-        this.errorHandler.handleError(error)
-      })
+  async register(data: { email: string, password: string }) {
+     try {
+      const value = await this.authentication.createUserWithEmailAndPassword(data.email, data.password);
+      console.log('SUCCSEED!');
+    } catch (error) {
+      console.log('Something went wrong: ', error);
+      this.errorHandler.handleError(error);
+    }
   }
 
-  login(email: string, password: string) {
-    this.authentication.signInWithEmailAndPassword(email, password)
-      .then(data => {
-        console.log(data, 'user is (succseedfull logged');
-        let { email, uid, } = data.user!
-        this.user = {
-          uid: uid!,
-          email: email!,
-        }
-      }).catch(error => {
-        this.errorHandler.handleError(error)
-      })
+  async login(email: string, password: string) {
+   try {
+      const data = await this.authentication.signInWithEmailAndPassword(email, password);
+      console.log(data, 'user is (succseedfull logged');
+      let { email: email_1, uid, } = data.user!;
+      this.user = {
+        uid: uid!,
+        email: email_1!,
+      };
+    } catch (error) {
+      this.errorHandler.handleError(error);
+    }
   }
 
   getUserInfo() {

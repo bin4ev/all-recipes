@@ -5,7 +5,6 @@ import { takeUntil } from "rxjs/operators";
 export function sameValueFactory(getTargetControl: () => AbstractControl | null, killSubscriptions: Observable<any>) {
   let subscription: Subscription | null = null;
   return function (control: AbstractControl) {
-
     if (subscription) {
       subscription.unsubscribe()
       subscription = null

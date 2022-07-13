@@ -1,26 +1,21 @@
-	
+<form class="pbl-form" #form='ngForm' (ngSubmit)="doLogin(form)">
+  <h2 class="form-title">Login</h2>
+  <mat-form-field  appearance="legacy" color="primary" >
+    <mat-label>Email</mat-label>
+    <input matInput #emailInput='ngModel' id="email" name="email" type="text" placeholder="john@gmail.com" required
+      email ngModel>
+    <mat-error *ngIf="emailInput.errors?.required">Email is required !</mat-error>
+    <mat-error *ngIf="emailInput.errors?.email">Email is not valid!</mat-error>
+  </mat-form-field>
 
-<form #form ='ngForm'  method="POST" (ngSubmit)="doLogin(form)">
-    <h2>Login</h2>
-          <p>
-              <label for="email" class="floatLabel">Email</label>
-              <input #emailInput='ngModel' id="email" name="email" type="text"  placeholder="john@gmail.com" required email  ngModel >
-              <ng-container *ngIf="emailInput.touched">
-                <span *ngIf="emailInput.errors?.required">Email is required !</span>
-                <span *ngIf="emailInput.errors?.email">Email is not valid!</span>
-            </ng-container>
-          </p>
-          <p>
-              <label for="password" class="floatLabel">Password</label>
-              <input #passwordInput= 'ngModel' ngModel id="password" name="password" type="password" required minlength="4" >
-              <ng-container *ngIf="passwordInput.touched">
-                <span *ngIf="passwordInput.errors?.required">Password is required !</span>
-                <span *ngIf="passwordInput.errors?.minlength">Password must be at least 4 characters long !</span>
-            </ng-container>
-
-          </p>
-      
-          <p>
-              <input type="submit" value="Submit" id="submit" >
-          </p>
-      </form>
+  <mat-form-field appearance="legacy" color="primary">
+    <mat-label>Password</mat-label>
+    <input matInput #passwordInput='ngModel' ngModel id="password" name="password" type="password" required
+      minlength="4">
+    <mat-error *ngIf="passwordInput.errors?.required">Password is required !</mat-error>
+    <mat-error *ngIf="passwordInput.errors?.minlength">Password must be at least 4 characters long !</mat-error>
+  </mat-form-field>
+  <div class="flex-to-end">
+    <button class="button" type="submit" [disabled]="form.invalid || submitting">Submit</button>
+  </div>
+</form>
