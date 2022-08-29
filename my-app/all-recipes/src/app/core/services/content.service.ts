@@ -29,7 +29,6 @@ export class ContentService {
       .catch((error) => {
         this.errorHandler.handleError(error)
       });
-
   }
 
   loadMyRecipes() {

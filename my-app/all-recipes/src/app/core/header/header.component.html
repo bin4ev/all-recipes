@@ -4,7 +4,7 @@
     </article>
     <article class="nav">
         <ul>
-            <ul *ngIf='isLogged'>
+            <ul *ngIf='$isLogged | async'>
                 <li>
                     <a routerLink='allRecipes/new-recipe'> NEW RECIPE</a>
                 </li>
@@ -20,13 +20,13 @@
                         <mat-icon>more_horiz</mat-icon>
                         <mat-menu #userMenu="matMenu">
                             <option mat-menu-item>Change Password</option>
-                            <option  mat-menu-item routerLink='/' (click)='logout()'>Logout</option>
+                            <option mat-menu-item routerLink='/' (click)='logout()'>Logout</option>
                         </mat-menu>
                     </div>
                 </li>
             </ul>
 
-            <ul *ngIf='!isLogged'>
+            <ul *ngIf='!($isLogged | async)'>
                 <li>
                     <a routerLink="/home">HOME</a>
                 </li>

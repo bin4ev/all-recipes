@@ -8,17 +8,8 @@ import { UserServiseService } from './core/services/user-servise.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  user: IUser | undefined | null = undefined;
-
-  isAuthenticating(): boolean {
-    return this.userService.user === null
-  }
 
   constructor(private userService: UserServiseService) {
-    this.userService.getUserInfo().subscribe({
-      error: () => {
-        this.userService.user = null;
-      }
-    });
+   /*  this.userService.getUserInfo() */
   }
 }

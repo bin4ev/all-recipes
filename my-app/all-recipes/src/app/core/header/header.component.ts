@@ -10,9 +10,8 @@ import { UserServiseService } from 'src/app/core/services/user-servise.service';
 })
 export class HeaderComponent {
 
-  get isLogged() {
-    return this.userService.isLogged
-  }
+  $isLogged = this.userService.isLoggedIn
+  
 
   get userEmail() {
     return this.userService.user?.email

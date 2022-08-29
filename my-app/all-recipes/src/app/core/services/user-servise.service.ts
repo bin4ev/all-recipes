@@ -2,7 +2,7 @@
 import { ErrorHandler, Injectable, } from '@angular/core';
 import { AngularFireAuth, } from '@angular/fire/auth';
 import { Router } from '@angular/router';
-import { tap } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { IUser } from '../../share/interface';
 
 @Injectable({
@@ -12,8 +12,9 @@ import { IUser } from '../../share/interface';
 export class UserServiseService {
   user: IUser | undefined | null = undefined;
 
-  get isLogged() {
-    return !!this.user
+  get isLoggedIn() {
+    return this.authentication.authState.pipe(map(res => res ? true : false)
+    )
   }
 
   constructor(private authentication: AngularFireAuth,
@@ -22,7 +23,7 @@ export class UserServiseService {
   ) { }
 
   async register(data: { email: string, password: string }) {
-     try {
+    try {
       const value = await this.authentication.createUserWithEmailAndPassword(data.email, data.password);
       console.log('SUCCSEED!');
     } catch (error) {
@@ -32,7 +33,7 @@ export class UserServiseService {
   }
 
   async login(email: string, password: string) {
-   try {
+    try {
       const data = await this.authentication.signInWithEmailAndPassword(email, password);
       console.log(data, 'user is (succseedfull logged');
       let { email: email_1, uid, } = data.user!;
@@ -45,18 +46,33 @@ export class UserServiseService {
     }
   }
 
+  /*  getUserInfo() {
+     return this.authentication.user.pipe(tap(user => {
+       console.log(user?.email)
+       if (user) {
+         let { email, uid, } = user!
+         this.user = {
+           uid: uid!,
+           email: email!,
+         }
+       }
+       console.log(this.isLogged);
+     })
+     )
+   } */
+
   getUserInfo() {
-    return this.authentication.user.pipe(tap(user => {
-      console.log(user?.email)
-      if (user) {
-        let { email, uid, } = user!
-        this.user = {
-          uid: uid!,
-          email: email!,
+    this.authentication.user.subscribe(
+      res => {
+        if (res) {
+          this.user = {
+            uid: res.uid,
+            email: <string>res.email,
+          }
+          console.log(res);
         }
-      }
-      console.log(this.isLogged);
-    })
+      },
+      error => this.user = null
     )
   }
 
