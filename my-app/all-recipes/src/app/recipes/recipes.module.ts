@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { ShareModule } from '../share/share.module';
 import { CommonModule } from '@angular/common';
 import { PostsComponent } from './recipes/posts.component';
 
@@ -26,6 +27,7 @@ import { FilterPipe } from '../core/pipes/filter.pipe';
  
   ],
   imports: [
+    ShareModule,
     RecipesRoutingModule,
     CommonModule,
     FormsModule,

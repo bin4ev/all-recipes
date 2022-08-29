@@ -19,6 +19,6 @@
         <mat-error *ngIf="form.get('rePassword')?.errors?.sameValue">Password not match !</mat-error>
     </mat-form-field>
     <div class="flex-to-end">
-        <button class="button" type="submit" [disabled]="form.invalid || submitting">Register</button>
+        <button mat-raised-button type="submit" [disabled]="form.invalid || submitting">Register</button>
     </div>
 </form>

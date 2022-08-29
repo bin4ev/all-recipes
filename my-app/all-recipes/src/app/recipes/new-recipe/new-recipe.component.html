@@ -1,20 +1,17 @@
-<form #form='ngForm' action="" method="post" (ngSubmit)="createRecipe(form)">
+<form class="pbl-form" #form='ngForm' action="" method="post" (ngSubmit)="createRecipe(form)">
     <h2>Share Your New Recipe</h2>
-
-    <article>
-        <label for="image" class="floatLabel">Image-url</label>
-        <input name="image" type="text" #imgUrl="ngModel" ngModel required>
-        <ng-container *ngIf="imgUrl.touched">
-            <span *ngIf="imgUrl.errors?.required">Image-url is required !</span>
-        </ng-container>
-    </article>
-    <article>
-        <label for="title" class="floatLabel">Title</label>
-        <input id="title" name="title" type="text" #titleInput="ngModel" ngModel required>
-        <ng-container *ngIf="titleInput.touched">
-            <span *ngIf="titleInput.errors?.required">Title is required !</span>
-        </ng-container>
-    </article>
+    <mat-form-field appearance="fill">
+        <mat-label>Image-url</mat-label>
+        <input matInput type="text" name="imgUrl" #imgUrl="ngModel" ngModel required>
+        <mat-error *ngIf="imgUrl.errors?.required">Email is required !</mat-error>
+        <mat-error *ngIf="imgUrl.errors?.email">Email is not valid!</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Title</mat-label>
+        <input matInput type="text" name="title" #titleInput="ngModel" ngModel required>
+        <mat-error *ngIf="titleInput.errors?.required">Email is required !</mat-error>
+        <mat-error *ngIf="titleInput.errors?.email">Email is not valid!</mat-error>
+    </mat-form-field>
     <article>
         <label for="category" class="floatLabel">Category</label>
         <select name="category" #category='ngModel' ngModel required>
@@ -26,6 +23,14 @@
             <span *ngIf="category.errors?.required">Category is required !</span>
         </ng-container>
     </article>
+    <mat-form-field appearance="fill">
+        <mat-label>Category</mat-label>
+        <!--   <input matInput type="text" name="title" #titleInput="ngModel" ngModel required> -->
+        <mat-select matNativeControl name="category" #category="ngModel" ngModel required>
+            <mat-option *ngFor='let category of categories' [value]="category">{{category}}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="category.errors?.required">Category is required !</mat-error>
+    </mat-form-field>
     <article>
         <label for="ingrediants" class="floatLabel">Ingrediants</label>
         <textarea id="" name="ingrediants" rows="5" cols="35.5" #ingrediants="ngModel" ngModel required>

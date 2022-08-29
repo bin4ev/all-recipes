@@ -1,6 +1,6 @@
 <form class="pbl-form" #form='ngForm' (ngSubmit)="doLogin(form)">
   <h2 class="form-title">Login</h2>
-  <mat-form-field  appearance="legacy" color="primary" >
+  <mat-form-field  appearance="fill">
     <mat-label>Email</mat-label>
     <input matInput #emailInput='ngModel' id="email" name="email" type="text" placeholder="john@gmail.com" required
       email ngModel>
@@ -8,7 +8,7 @@
     <mat-error *ngIf="emailInput.errors?.email">Email is not valid!</mat-error>
   </mat-form-field>
 
-  <mat-form-field appearance="legacy" color="primary">
+  <mat-form-field appearance="fill">
     <mat-label>Password</mat-label>
     <input matInput #passwordInput='ngModel' ngModel id="password" name="password" type="password" required
       minlength="4">
@@ -16,6 +16,6 @@
     <mat-error *ngIf="passwordInput.errors?.minlength">Password must be at least 4 characters long !</mat-error>
   </mat-form-field>
   <div class="flex-to-end">
-    <button class="button" type="submit" [disabled]="form.invalid || submitting">Submit</button>
+    <button mat-raised-button type="submit" [disabled]="form.invalid || submitting">Submit</button>
   </div>
 </form>

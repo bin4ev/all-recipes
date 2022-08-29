@@ -19,6 +19,7 @@ export class LoginComponent {
     if (form.invalid || this.submitting) {
       return
     }
+    
     this.submitting = true
     const { email, password } = form.value;
     this.auth.login(email, password).finally(() => {

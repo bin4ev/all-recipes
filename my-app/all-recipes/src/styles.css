@@ -10,7 +10,6 @@ body {
     margin: 0px;
     box-sizing: border-box;
     min-height: 100vh;
-
 }
 
 *,
@@ -28,14 +27,9 @@ h6 {
     font-family: 'Oswald', sans-serif;
 }
 
-html,
 body {
-    height: 100%;
-}
-
-body {
-    margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
+    background: linear-gradient(90deg , rgba(247,247,247,1) 14%, rgba(186,195,207,1) 45%, rgba(123,131,146,1) 82%);
 }
 
 .pbl-input {
@@ -45,6 +39,7 @@ body {
 
 .pbl-form {
     padding: 2em 2em;
+    background: white;
     max-width: 30%;
     margin: 50px auto;
     box-shadow: 0 0 1em #222;
