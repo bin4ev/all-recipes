@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { CanActivate, ActivatedRouteSnapshot, Router, RouterStateSnapshot, UrlTree } from "@angular/router";
 
 import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { UserServiseService } from "src/app/core/services/user-servise.service";
 
 
@@ -11,13 +12,15 @@ export class AuthActivate implements CanActivate {
     constructor(private router: Router, private userService: UserServiseService) { }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot,): boolean | UrlTree | Observable<boolean | UrlTree> | boolean | UrlTree {
+
         const { authRequared, authRedirectUrl } = route.data;
 
-        if (typeof authRequared === 'boolean' &&
-            authRequared === this.userService.isLogged) {
-            return true;
+        if (authRequared) {
+            return this.userService.isLoggedIn
         } else {
-            return this.router.parseUrl(authRedirectUrl || '/home');
+            return this.userService.isLoggedIn.pipe(map(res => res ? false : true))
         }
+
+
     }
 }

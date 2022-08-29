@@ -18,8 +18,9 @@ const routes: Routes = [
         canActivate: [AuthActivate],
         data: {
             authRequared: false,
-            authRedirectUrl: '/home'
+            authRedirectUrl: '/user/login'
         }
+        
     },
     {
         path: 'register',
@@ -27,7 +28,7 @@ const routes: Routes = [
         canActivate: [AuthActivate],
         data: {
             authRequared: false,
-            authRedirectUrl: '/home'
+            authRedirectUrl: '/user/register'
         }
     }
 ];
