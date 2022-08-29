@@ -45,40 +45,10 @@
 
     </div>
 
-    <div *ngIf="isFilter=== false">
-
-        <div class="post-wrapper">
-            <section class="post" *ngFor=' let post of posts'>
-
-                <article class="img-wrapper">
-                    <img src={{post.image}}>
-                </article>
-                <article class="post-content">
-
-                    <h3 class="post-content-title">{{post.title}}</h3>
-                    <ul class="post-content-text-description">
-                        <li class="post-content-text"><span>Category:</span> {{post.category}}</li>
-                        <li class="post-content-text"><span>Portions:</span> {{post.portions}}</li>
-                        <li class="post-content-text"><span>Level:</span> {{post.level}}</li>
-                        <li class="post-content-text"><span>Duration:</span> {{post.duration}} min</li>
-                    </ul>
-
-                    <ul class="post-content-text-preparation">
-                        <li class="post-content-text-preparation-items1">
-                            <p>Ingrediants:</p> {{post.ingrediants}}
-                        </li>
-                        <li class="post-content-text-preparation-items2">
-                            <p>Preparation:</p> {{post.preparation}}
-                        </li>
-                    </ul>
-
-
-                    <li class="author"><span>Created By:</span> {{post.createdBy}}</li>
-                </article>
-            </section>
+    <div *ngIf="isFilter === false">
+        <div class="post-wrapper"  *ngFor=' let post of posts'>
+                <app-recipe [post]="post"></app-recipe>
         </div>
-
-
     </div>
     <div class="post-wrapper" *ngIf="!posts">Loading...</div>
 

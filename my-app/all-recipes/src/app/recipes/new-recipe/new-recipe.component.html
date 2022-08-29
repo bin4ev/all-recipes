@@ -12,71 +12,49 @@
         <mat-error *ngIf="titleInput.errors?.required">Email is required !</mat-error>
         <mat-error *ngIf="titleInput.errors?.email">Email is not valid!</mat-error>
     </mat-form-field>
-    <article>
-        <label for="category" class="floatLabel">Category</label>
-        <select name="category" #category='ngModel' ngModel required>
-            <option *ngFor='let category of categories'>
-                {{category}}
-            </option>
-        </select>
-        <ng-container *ngIf="category.touched">
-            <span *ngIf="category.errors?.required">Category is required !</span>
-        </ng-container>
-    </article>
     <mat-form-field appearance="fill">
         <mat-label>Category</mat-label>
-        <!--   <input matInput type="text" name="title" #titleInput="ngModel" ngModel required> -->
-        <mat-select matNativeControl name="category" #category="ngModel" ngModel required>
+        <mat-select name="category" #category="ngModel" ngModel required>
             <mat-option *ngFor='let category of categories' [value]="category">{{category}}</mat-option>
         </mat-select>
         <mat-error *ngIf="category.errors?.required">Category is required !</mat-error>
     </mat-form-field>
-    <article>
-        <label for="ingrediants" class="floatLabel">Ingrediants</label>
-        <textarea id="" name="ingrediants" rows="5" cols="35.5" #ingrediants="ngModel" ngModel required>
-    </textarea>
-        <ng-container *ngIf="ingrediants.touched">
-            <span *ngIf="ingrediants.errors?.required">Ingrediants are required !</span>
-        </ng-container>
-    </article>
-    <article>
-        <label for="preparation" class="floatLabel">Preparation</label>
-        <textarea name="preparation" rows="5" cols="35.5" #preparations='ngModel' ngModel required>
-        </textarea>
-        <ng-container *ngIf="preparations.touched">
-            <span *ngIf="preparations.errors?.required">Descriptions is required !</span>
-        </ng-container>
-    </article>
-    <article>
-        <label for="portions" class="floatLabel">Portions</label>
-        <input id="" name="portions" type="number" min="0" #portions="ngModel" ngModel required>
-        <ng-container *ngIf="portions.touched">
-            <span *ngIf="portions.errors?.required">Portions are required !</span>
-        </ng-container>
-    </article>
-    <article>
-        <label for="duration" class="floatLabel">Duration</label>
-        <input id="" name="duration" type="number" #durations='ngModel' ngModel required>
-        <ng-container *ngIf="durations.touched">
-            <span *ngIf="durations.errors?.required">Durations is required !</span>
-        </ng-container>
-    </article>
-    <article>
-        <label for="level" class="floatLabel">Level</label>
-        <select name="level" id="" #level='ngModel' ngModel required>
-            <option *ngFor='let level of levels'>
+    <mat-form-field appearance="fill">
+        <mat-label for="ingrediants" class="floatLabel">Ingrediants</mat-label>
+        <textarea matInput id="" name="ingrediants" rows="5" cols="35.5" #ingrediants="ngModel" ngModel
+            required></textarea>
+        <mat-error *ngIf="ingrediants.errors?.required">Ingrediants are required !</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label for="preparation" class="floatLabel">Preparation</mat-label>
+        <textarea matInput name="preparation" rows="5" cols="35.5" #preparations='ngModel' ngModel required></textarea>
+        <mat-error *ngIf="preparations.errors?.required">Descriptions is required !</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label for="portions" class="floatLabel">Portions</mat-label>
+        <input matInput id="" name="portions" type="number" min="0" #portions="ngModel" ngModel required>
+        <mat-error *ngIf="portions.errors?.required">Portions are required !</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label for="duration" class="floatLabel">Duration</mat-label>
+        <input matInput id="" name="duration" type="number"  min="1" #durations='ngModel' ngModel required>
+        <mat-error *ngIf="durations.errors?.required">Durations is required !</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label for="level" class="floatLabel">Level</mat-label>
+        <mat-select name="level" id="" #level='ngModel' ngModel required>
+            <mat-option *ngFor='let level of levels' [value]="level">
                 {{level}}
-            </option>
-        </select>
-        <ng-container *ngIf="level.touched">
-            <span *ngIf="level.errors?.required">Level is required !</span>
-        </ng-container>
-    </article>
-    <article>
-        <label for="createdBy" class="floatLabel">Created By</label>
-        <input disabled id="" name="createdBy" type="text" [ngModel]='userEmail'>
-    </article>
-    <article>
-        <input type="submit" value="Submit" id="submit">
-    </article>
+            </mat-option>
+        </mat-select>
+        <mat-error *ngIf="level.errors?.required">Level is required !</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label for="createdBy" class="floatLabel">Created By</mat-label>
+        <input matInput disabled id="" name="createdBy" type="text" [ngModel]='userEmail'>
+    </mat-form-field>
+ 
+    <div class="flex-to-end">
+        <button mat-raised-button type="submit" [disabled]="form.invalid">Submit</button>
+    </div>
 </form>

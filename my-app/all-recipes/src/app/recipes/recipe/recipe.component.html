@@ -23,7 +23,7 @@
                 </ul>
                 <li class="author"><span>Created By:</span> {{post.createdBy}}</li>
             </article>
-            <article class="buttons-wrapper">
+            <article class="buttons-wrapper" *ngIf="post.createdBy == currUser?.email ">
                 <button [routerLink]="['/edit',post.id]" class="button">
                     <p>Edit</p>
                 </button>

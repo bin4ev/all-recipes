@@ -13,7 +13,8 @@ export class NewRecipeComponent {
 
   categories: any = ['Starter', 'Main Courses', 'Desserts', 'others'];
   levels: any = ['Beginers', 'Advance', 'Expert'];
-  userEmail
+  userEmail!: string | undefined
+  submitting = false
 
   constructor(
     private contentService: ContentService,
@@ -30,12 +31,12 @@ export class NewRecipeComponent {
     if (form.invalid) {
       return
     }
-
+    this.submitting = true
     const creatorId = this.userService.user?.uid
     const createdBy = this.userService.user?.email
-    const data = { ...form.value, creatorId, createdBy };
+    const data = { ...form.value, creatorId, createdBy }
 
-    this.contentService.addReciep(data);
+    this.contentService.addReciep(data)
     this.router.navigate(['/allRecipes/my-recipes'])
   }
 
