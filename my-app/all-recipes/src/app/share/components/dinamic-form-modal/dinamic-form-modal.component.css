@@ -1,0 +1,15 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+:host ::ng-deep [title] {
+  border-bottom: solid 1px #a8a5a5;
+}
+
+:host ::ng-deep [content] {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}

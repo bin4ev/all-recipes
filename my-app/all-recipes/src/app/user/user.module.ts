@@ -7,13 +7,15 @@ import { UserRoutingModule } from './user-routing.modul';
 import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
 import { ShareModule } from '../share/share.module';
 import { UserServiseService } from '../core/services/user-servise.service';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 
 
 @NgModule({
   declarations: [
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    ChangePasswordComponent
   ],
   imports: [
     ReactiveFormsModule ,

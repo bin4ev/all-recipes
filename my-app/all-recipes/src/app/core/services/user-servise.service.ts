@@ -84,4 +84,14 @@ export class UserServiseService {
 
       }).catch(error => this.errorHandler.handleError(error))
   }
+
+  updateUserPassword(password: string) {
+     return this.authentication.currentUser
+      .then((user) => {
+        user?.updatePassword(password)
+      }).catch(err => {
+        console.error(err);
+        this.errorHandler.handleError(err)
+      })
+  }
 }
