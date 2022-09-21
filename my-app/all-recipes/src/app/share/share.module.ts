@@ -7,6 +7,9 @@ import { MatInputModule } from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatTooltipModule} from '@angular/material/tooltip';
+
+
 import { DinamicFormModalComponent } from './components/dinamic-form-modal/dinamic-form-modal.component'
 
 
@@ -23,7 +26,8 @@ import { DinamicFormModalComponent } from './components/dinamic-form-modal/dinam
     MatInputModule,
     MatButtonModule,
     MatSelectModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTooltipModule
   ],
   exports: [
     DinamicFormModalComponent,
@@ -34,7 +38,8 @@ import { DinamicFormModalComponent } from './components/dinamic-form-modal/dinam
     MatInputModule,
     MatButtonModule,
     MatSelectModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTooltipModule
   ]
 })
 export class ShareModule { }

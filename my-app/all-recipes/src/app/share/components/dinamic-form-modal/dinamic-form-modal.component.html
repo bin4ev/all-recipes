@@ -1,7 +1,18 @@
 <section class="main">
+  <div class="header" mat-dialog-title>
     <ng-content select="[title]"></ng-content>
-    <ng-content select="[content]"></ng-content>
-  <div class="flex-to-end">
-    <ng-content class="flex-to-end" select="[footer-btn]"></ng-content>
+    <mat-icon
+      mat-dialog-close
+      matTooltip="close">
+      close
+    </mat-icon>
   </div>
+
+  <mat-dialog-content>
+    <ng-content mat-dialog-content select="[content]"></ng-content>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <ng-content select="[footer-btn]"></ng-content>
+  </mat-dialog-actions>
 </section>

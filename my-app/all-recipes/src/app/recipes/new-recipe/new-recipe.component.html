@@ -1,60 +1,62 @@
-<form class="pbl-form" #form='ngForm' action="" method="post" (ngSubmit)="createRecipe(form)">
-    <h2>Share Your New Recipe</h2>
-    <mat-form-field appearance="fill">
-        <mat-label>Image-url</mat-label>
-        <input matInput type="text" name="imgUrl" #imgUrl="ngModel" ngModel required>
-        <mat-error *ngIf="imgUrl.errors?.required">Email is required !</mat-error>
-        <mat-error *ngIf="imgUrl.errors?.email">Email is not valid!</mat-error>
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label>Title</mat-label>
-        <input matInput type="text" name="title" #titleInput="ngModel" ngModel required>
-        <mat-error *ngIf="titleInput.errors?.required">Email is required !</mat-error>
-        <mat-error *ngIf="titleInput.errors?.email">Email is not valid!</mat-error>
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label>Category</mat-label>
-        <mat-select name="category" #category="ngModel" ngModel required>
-            <mat-option *ngFor='let category of categories' [value]="category">{{category}}</mat-option>
-        </mat-select>
-        <mat-error *ngIf="category.errors?.required">Category is required !</mat-error>
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label for="ingrediants" class="floatLabel">Ingrediants</mat-label>
-        <textarea matInput id="" name="ingrediants" rows="5" cols="35.5" #ingrediants="ngModel" ngModel
-            required></textarea>
-        <mat-error *ngIf="ingrediants.errors?.required">Ingrediants are required !</mat-error>
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label for="preparation" class="floatLabel">Preparation</mat-label>
-        <textarea matInput name="preparation" rows="5" cols="35.5" #preparations='ngModel' ngModel required></textarea>
-        <mat-error *ngIf="preparations.errors?.required">Descriptions is required !</mat-error>
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label for="portions" class="floatLabel">Portions</mat-label>
-        <input matInput id="" name="portions" type="number" min="0" #portions="ngModel" ngModel required>
-        <mat-error *ngIf="portions.errors?.required">Portions are required !</mat-error>
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label for="duration" class="floatLabel">Duration</mat-label>
-        <input matInput id="" name="duration" type="number"  min="1" #durations='ngModel' ngModel required>
-        <mat-error *ngIf="durations.errors?.required">Durations is required !</mat-error>
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label for="level" class="floatLabel">Level</mat-label>
-        <mat-select name="level" id="" #level='ngModel' ngModel required>
-            <mat-option *ngFor='let level of levels' [value]="level">
-                {{level}}
-            </mat-option>
-        </mat-select>
-        <mat-error *ngIf="level.errors?.required">Level is required !</mat-error>
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label for="createdBy" class="floatLabel">Created By</mat-label>
-        <input matInput disabled id="" name="createdBy" type="text" [ngModel]='userEmail'>
-    </mat-form-field>
- 
-    <div class="flex-to-end">
-        <button mat-raised-button type="submit" [disabled]="form.invalid">Submit</button>
-    </div>
-</form>
+<app-dinamic-form-modal>
+    <h2 title>Share Your New Recipe</h2>
+    <form content #form='ngForm' action="" method="post">
+        <mat-form-field appearance="fill">
+            <mat-label>Image-url</mat-label>
+            <input matInput type="text" name="imgUrl" #imgUrl="ngModel" ngModel required>
+            <mat-error *ngIf="imgUrl.errors?.required">Email is required !</mat-error>
+            <mat-error *ngIf="imgUrl.errors?.email">Email is not valid!</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Title</mat-label>
+            <input matInput type="text" name="title" #titleInput="ngModel" ngModel required>
+            <mat-error *ngIf="titleInput.errors?.required">Email is required !</mat-error>
+            <mat-error *ngIf="titleInput.errors?.email">Email is not valid!</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Category</mat-label>
+            <mat-select name="category" #category="ngModel" ngModel required>
+                <mat-option *ngFor='let category of categories' [value]="category">{{category}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="category.errors?.required">Category is required !</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label for="ingrediants" class="floatLabel">Ingrediants</mat-label>
+            <textarea matInput id="" name="ingrediants" rows="5" cols="35.5" #ingrediants="ngModel" ngModel
+                required></textarea>
+            <mat-error *ngIf="ingrediants.errors?.required">Ingrediants are required !</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label for="preparation" class="floatLabel">Preparation</mat-label>
+            <textarea matInput name="preparation" rows="5" cols="35.5" #preparations='ngModel' ngModel
+                required></textarea>
+            <mat-error *ngIf="preparations.errors?.required">Descriptions is required !</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label for="portions" class="floatLabel">Portions</mat-label>
+            <input matInput id="" name="portions" type="number" min="0" #portions="ngModel" ngModel required>
+            <mat-error *ngIf="portions.errors?.required">Portions are required !</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label for="duration" class="floatLabel">Duration</mat-label>
+            <input matInput id="" name="duration" type="number" min="1" #durations='ngModel' ngModel required>
+            <mat-error *ngIf="durations.errors?.required">Durations is required !</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label for="level" class="floatLabel">Level</mat-label>
+            <mat-select name="level" id="" #level='ngModel' ngModel required>
+                <mat-option *ngFor='let level of levels' [value]="level">
+                    {{level}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="level.errors?.required">Level is required !</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label for="createdBy" class="floatLabel">Created By</mat-label>
+            <input matInput disabled id="" name="createdBy" type="text" [ngModel]='userEmail'>
+        </mat-form-field>
+
+    </form>
+    <button footer-btn mat-raised-button (click)="createRecipe(form)" [disabled]="form.invalid">Submit</button>
+
+</app-dinamic-form-modal>

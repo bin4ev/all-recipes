@@ -6,7 +6,7 @@
         <ul>
             <ul *ngIf='$isLogged | async'>
                 <li>
-                    <a routerLink='allRecipes/new-recipe'> NEW RECIPE</a>
+                    <a (click)='openDialog(newRicieptComp)'>NEW RECIPE</a>
                 </li>
                 <li>
                     <a routerLink='allRecipes/my-recipes'>MY RECIPES</a>
@@ -19,7 +19,7 @@
                     <div [matMenuTriggerFor]="userMenu">
                         <mat-icon>more_horiz</mat-icon>
                         <mat-menu #userMenu="matMenu">
-                            <option mat-menu-item (click)="openDialog()">Change Password</option>
+                            <option mat-menu-item (click)="openDialog(ChangePasswordComp)">Change Password</option>
                             <option mat-menu-item routerLink='/' (click)='logout()'>Logout</option>
                         </mat-menu>
                     </div>
