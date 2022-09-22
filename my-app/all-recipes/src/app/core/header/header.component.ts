@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ChangePasswordComponent } from 'src/app/user/change-password/change-password.component';
 import { NewRecipeComponent } from 'src/app/recipes/new-recipe/new-recipe.component';
 import { ComponentType } from '@angular/cdk/portal';
+import { IUser } from 'src/app/share/interface';
 
 @Component({
   selector: 'app-header',
@@ -17,14 +18,19 @@ export class HeaderComponent {
   $isLogged = this.userService.isLoggedIn
   ChangePasswordComp = ChangePasswordComponent
   newRicieptComp = NewRecipeComponent
-
-  get userEmail() {
-    return this.userService.user?.email
-  }
+  userInfo!: any
 
   constructor(private userService: UserServiseService, private auth: AngularFireAuth,
     private router: Router,
     private dialog: MatDialog) { }
+
+  ngOnInit() {
+    this.userService.isLoggedIn.subscribe(bool => {
+      console.log(this.userService.userInfo);
+      
+      this.userInfo = bool ? this.userService.userInfo : null
+    })
+  }
 
   openDialog(component: ComponentType<any>) {
     this.dialog.open(component)

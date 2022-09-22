@@ -10,6 +10,6 @@ import { UserServiseService } from './core/services/user-servise.service';
 export class AppComponent {
 
   constructor(private userService: UserServiseService) {
-   /*  this.userService.getUserInfo() */
+   this.userService.getUserInfo()
   }
 }

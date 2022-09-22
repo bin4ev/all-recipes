@@ -17,6 +17,11 @@ export class UserServiseService {
     )
   }
 
+  get userInfo() {
+    return this.user
+  }
+
+
   constructor(private authentication: AngularFireAuth,
     private router: Router,
     private errorHandler: ErrorHandler
@@ -36,11 +41,13 @@ export class UserServiseService {
     try {
       const data = await this.authentication.signInWithEmailAndPassword(email, password);
       console.log(data, 'user is (succseedfull logged');
-      let { email: email_1, uid, } = data.user!;
       this.user = {
-        uid: uid!,
-        email: email_1!,
-      };
+        uid: data.user!.uid,
+        email: data.user!.email
+      }
+      console.log(this.user);
+      
+
     } catch (error) {
       this.errorHandler.handleError(error);
     }
@@ -86,7 +93,7 @@ export class UserServiseService {
   }
 
   updateUserPassword(password: string) {
-     return this.authentication.currentUser
+    return this.authentication.currentUser
       .then((user) => {
         user?.updatePassword(password)
       }).catch(err => {
