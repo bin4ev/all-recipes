@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 
 import { ContentService } from 'src/app/core/services/content.service';
@@ -13,18 +14,18 @@ export class NewRecipeComponent {
 
   categories: any = ['Starter', 'Main Courses', 'Desserts', 'others'];
   levels: any = ['Beginers', 'Advance', 'Expert'];
-  userEmail!: string | undefined
+  userEmail!: any
   submitting = false
 
   constructor(
     private contentService: ContentService,
     private router: Router,
-    private userService: UserServiseService) {
-    this.userEmail = this.getUserEmail()
+    private userService: UserServiseService,
+    private dialogRef: MatDialogRef<NewRecipeComponent>) {
   }
 
-  getUserEmail() {
-    return this.userService.user?.email
+  ngOnInit() {
+    this.userEmail = this.userService.userInfo?.email
   }
 
   createRecipe(form: NgForm): void {
@@ -36,7 +37,7 @@ export class NewRecipeComponent {
     const createdBy = this.userService.user?.email
     const data = { ...form.value, creatorId, createdBy }
 
-    this.contentService.addReciep(data)
+    this.contentService.addReciep(data).then(() => this.dialogRef.close() )
     this.router.navigate(['/allRecipes/my-recipes'])
   }
 

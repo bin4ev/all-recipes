@@ -22,8 +22,9 @@ export class ContentService {
   }
 
   addReciep(data: {}) {
-    this.db.collection("recipes").add({ ...data })
+    return this.db.collection("recipes").add({ ...data })
       .then((docRef) => {
+ 
         console.log("Document written with ID: ", docRef.id);
       })
       .catch((error) => {
